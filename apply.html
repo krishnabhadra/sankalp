@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now | SANKALP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --border-color: #eaeaea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            /* Subtle Grid Background matching your index */
+            background-image: 
+                linear-gradient(to right, #f4f4f4 1px, transparent 1px),
+                linear-gradient(to bottom, #f4f4f4 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo-area img {
+            height: 35px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .btn-black {
+            background: #000;
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid #000;
+            transition: all 0.2s;
+        }
+
+        .btn-black:hover {
+            background: #333;
+        }
+
+        /* Form Container Styles */
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .form-container {
+            max-width: 650px;
+            width: 100%;
+            background: #fff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.03em;
+        }
+
+        .form-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #fafafa;
+            transition: all 0.2s ease;
+            color: var(--text-main);
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            outline: none;
+            border-color: #000;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(0,0,0,0.05);
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.05rem;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-area">
+            <img src="/assets/RAS main logo.png" alt="IEEE Logo" style="object-fit: contain;">
+            IEEE RAS Kerala Chapter
+        </a>
+        <nav class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#program">Program</a>
+            <a href="index.html#tracks">Tracks</a>
+            <a href="index.html#bootcamp">Bootcamp</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Apply for SANKALP</h1>
+                <p>Join the 32-day flagship research and innovation program. Secure your spot in the intersection of Neurorobotics, AI, and Human-Machine Interaction.</p>
+            </div>
+
+            <form action="#" method="POST" id="sankalp-application">
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="college">College / Institution *</label>
+                    <input type="text" id="college" name="college" required placeholder="Name of your institution">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="ieeeId">IEEE Membership ID (Optional)</label>
+                    <input type="text" id="ieeeId" name="ieeeId" placeholder="Leave blank if not applicable">
+                </div>
+
+                <div class="form-group">
+                    <label for="track">Primary Track / Event Preference *</label>
+                    <select id="track" name="track" required>
+                        <option value="" disabled selected>Select an option...</option>
+                        <optgroup label="Core Research Tracks">
+                            <option value="neurorobotics">Track 1: Adaptive Neurorobotics</option>
+                            <option value="haptics">Track 2: Haptic Systems</option>
+                            <option value="cps">Track 3: Cyber-Physical Systems</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-black submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Simple form submission handler - Remove or edit this logic based on your backend
+        document.getElementById('sankalp-application').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Provide visual feedback before redirecting/submitting
+            const btn = document.querySelector('.submit-btn');
+            btn.textContent = 'Submitting...';
+            btn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                alert('Thank you! Your application for SANKALP has been received.');
+                btn.textContent = 'Submit Application';
+                btn.style.opacity = '1';
+                this.reset();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

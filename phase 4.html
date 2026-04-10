@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 4: Leadership & Challenges | SANKALP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --border-color: #eaeaea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            /* Subtle Grid Background matching your index */
+            background-image: 
+                linear-gradient(to right, #f4f4f4 1px, transparent 1px),
+                linear-gradient(to bottom, #f4f4f4 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo-area img {
+            height: 35px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .btn-black {
+            background: #000;
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid #000;
+            transition: all 0.2s;
+        }
+
+        .btn-black:hover {
+            background: #333;
+        }
+
+        /* Phase 4 Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Table Styles */
+        .table-container {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        th {
+            background: #fafafa;
+            font-weight: 600;
+            width: 25%;
+            border-right: 1px solid var(--border-color);
+        }
+
+        td ul {
+            padding-left: 20px;
+            margin-top: 5px;
+            color: var(--text-muted);
+        }
+
+        td ul li {
+            margin-bottom: 5px;
+        }
+
+        tr:last-child th, tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Grid Styles */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .event-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .event-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .event-content {
+            padding: 25px;
+        }
+
+        .event-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .event-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .event-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            th, td {
+                display: block;
+                width: 100%;
+                border-right: none;
+            }
+            th {
+                border-bottom: none;
+                padding-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-area">
+            <img src="/assets/RAS main logo.png" alt="IEEE Logo" style="object-fit: contain;">
+            IEEE RAS Kerala Chapter
+        </a>
+        <nav class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#program">Program</a>
+            <a href="index.html#tracks">Tracks</a>
+            <a href="index.html#bootcamp">Bootcamp</a>
+            <a href="apply.html" class="btn-black">Apply Now</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>Phase IV: Graduate & Professional Leadership</h1>
+            <p>Participants transition from advanced learners to leaders, guiding undergraduate participants through hands-on workshops while working on industry-oriented design challenges.</p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Mode</th>
+                        <td><strong>Offline (In-person)</strong></td>
+                    </tr>
+                    <tr>
+                        <th>Duration</th>
+                        <td><strong>2 Days (48-hour challenge)</strong></td>
+                    </tr>
+                    <tr>
+                        <th>Core Theme</th>
+                        <td><strong>Smart Neurorobotics for Healthcare & Assistive Systems</strong></td>
+                    </tr>
+                    <tr>
+                        <th>Problem Domains</th>
+                        <td>
+                            <ul>
+                                <li>Assistive devices for the differently-abled</li>
+                                <li>Rehabilitation robotics</li>
+                                <li>Intelligent patient monitoring systems</li>
+                                <li>Emotion-aware healthcare assistants</li>
+                                <li>Remote healthcare & tele-rehabilitation solutions</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title">Events & Hackathons</h2>
+        
+        <div class="event-grid">
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80" alt="HealthTech Hackathon" class="event-img">
+                <div class="event-content">
+                    <span class="event-tag">36-Hour Hackathon</span>
+                    <h3 class="event-title">HealthTech Innovation</h3>
+                    <p class="event-desc">A hybrid event for undergraduate students to develop robotics and automation solutions for real-world healthcare challenges, from ideation to final hardware pitch.</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80" alt="Debate" class="event-img">
+                <div class="event-content">
+                    <span class="event-tag">Structured Competition</span>
+                    <h3 class="event-title">Ethical Perspectives Debate</h3>
+                    <p class="event-desc">Bridge the gap between technical design and real-world impact. A structured debate evaluating logical consistency on "Ethics in Emerging Intelligent Systems."</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Project Expo" class="event-img">
+                <div class="event-content">
+                    <span class="event-tag">Innovation Showcase</span>
+                    <h3 class="event-title">Project Expo</h3>
+                    <p class="event-desc">An interdisciplinary showcase of functional prototypes addressing societal needs through Neurorobotics, Haptic Systems, and Cyber-Physical Systems.</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80" alt="Industry Simulation" class="event-img">
+                <div class="event-content">
+                    <span class="event-tag">Client Simulation</span>
+                    <h3 class="event-title">Smart Assistive Monitoring</h3>
+                    <p class="event-desc">Design practical engineering solutions for elderly healthcare, focusing on real-time safety responses and user-centered design constraints.</p>
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80" alt="Lab Visit" class="event-img">
+                <div class="event-content">
+                    <span class="event-tag">Field Trip</span>
+                    <h3 class="event-title">Robotics Lab Visit – IIT Madras</h3>
+                    <p class="event-desc">Direct exposure to advanced research environments. Observe state-of-the-art neurorobotic setups and interact with leading researchers and PhD scholars.</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=800&q=80" alt="Networking" class="event-img">
+                <div class="event-content">
+                    <span class="event-tag">Community & Growth</span>
+                    <h3 class="event-title">Networking & Culturals</h3>
+                    <p class="event-desc">Connect with industry professionals, enjoy cultural performances, and explore career, funding, and higher-education pathways within IEEE RAS.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
