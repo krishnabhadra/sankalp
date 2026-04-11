@@ -1,0 +1,157 @@
+PHASE I – School Students (Grades 8–12)
+Foundational Program in Neurorobotics & Human–Machine Interaction
+Duration: 3 Days
+PROGRAM OVERVIEW
+PRAGYAN
+Pragyan Explorers is a structured foundational program designed to introduce school students to
+the interdisciplinary domain of neurorobotics, human–machine interaction, and intelligent
+systems. The program adopts an experiential learning approach, progressing from conceptual
+understanding to hands-on implementation and finally to real-world exposure.
+DAY 1: Foundations of Neurorobotics & Human–Machine Interaction
+Mode: Offline
+Learning Objective
+To introduce the concept of neurorobotics and establish a foundational understanding of human
+input-based control systems, visual perception, and intelligent interaction in robotics.
+Session 1: Introduction to Neurorobotics & Intelligent Interaction
+Focus: Understanding human–machine interaction through signals, gestures, and vision
+Content Delivery:
+11
+Phase Audience Duration Mode Location
+Smart Assistive System
+Project Expo & Research
+Symposium
+All 2 Days Offline Central Venue
+IIT Madras Robotics Lab
+Visit
+Graduate
+Students
+1 Day Offline IIT Madras
+Industry Day All 1 Day Offline Genrobotics
+Total — 32 Days — Kerala + Tamil Nadu
+● Introduction to neurorobotics as a fusion of neuroscience, robotics, and AI
+● Simplified explanation of human and interaction signals:
+– Muscle signals (basic idea of EMG)
+– Brain signals (conceptual understanding of BCI)
+– Voice and sound inputs
+– Hand gestures as control signals
+– Visual perception
+● Introduction to gesture-based and vision-based robotics:
+– How robots understand hand movements
+– Basics of cameras and image processing
+– Examples of gesture-controlled and vision-enabled systems
+● Real-world applications:
+– Assistive and rehabilitation devices
+– Gesture-controlled robots and smart systems
+– Vision-based systems like face detection and object tracking
+– Smart interactive environments
+Engagement Activities:
+● Visual case studies and demonstration videos (prosthetics, gesture-controlled robots, vision
+systems)
+● Live demo:
+– Simple gesture-controlled system or camera-based detection
+● Group discussions:
+– “How can robots understand humans better?”
+– “Where do we see gestures and vision in daily life?”
+● Brainstorming activity:
+ Identifying real-life problems solvable using neurorobotics and intelligent interaction
+Outcome:
+Students develop a clear and intuitive understanding of neurorobotics, including how:
+● Human signals (muscle, voice) control machines
+● Gestures act as natural control inputs
+● Vision enables robots to perceive and respond to the environment
+Session 2: Fundamentals of Electronics
+12
+Focus: Building blocks of robotic systems
+Content Delivery:
+● Basic components: Battery, LED, resistor, switch
+● Concept of circuit flow and control
+Hands-on Activity:
+● Breadboard circuit construction
+● LED control using switch
+Session 3: Human Input-Based Control Systems
+Focus: Translating human actions into machine response
+Content Delivery:
+● Control logic:
+Input → Processing → Output
+● Introduction to sound and touch-based inputs
+Demonstration & Activity:
+● Clap-controlled system demonstration
+● Student interaction and testing
+DAY 2: Applied Robotics – Sensing, Control & Autonomous Systems
+Mode: Offline
+Learning Objective
+ To enable students to design and build intelligent robotic systems capable of sensing and
+responding to their environment.
+Session 1: Robotic Sensing & Decision-Making
+Focus: Environmental interaction
+Content Delivery:
+● Introduction to sensors (ultrasonic/IR)
+13
+● Concept of perception and response
+● Basic decision-making logic
+Concept Link:
+Comparison with human sensing and reaction (neurorobotics analogy)
+Session 2: Obstacle-Avoiding Robot – System Design
+Focus: Understanding system architecture
+Content Delivery:
+Components:
+● Ultrasonic sensor
+● Motor driver
+● Microcontroller
+● Control logic:
+○ Distance detection
+○ Conditional response
+Session 3: Hands-On Robot Construction
+Focus: Practical system integration
+Hands-on Implementation:
+● Assemble robot chassis
+● Integrate motors and wheels
+● Connect ultrasonic sensor and control unit
+● Upload and test control program
+Learning Approach:
+● Team-based construction
+● Guided troubleshooting
+Session 4: Testing & Challenge
+Focus: Application and optimization
+Activities:
+14
+● Test robot in obstacle course
+● Improve movement and sensing
+● Mini challenge: navigation task
+DAY 3: Experiential Learning – Neurorobotics in Real Life
+Mode: Field Visit / Hybrid
+Learning Objective
+To expose students to real-world applications of neurorobotics in healthcare and assistive
+systems.
+Session 1: Pre-Visit Orientation
+Focus: Contextual preparation
+Content Delivery:
+● Introduction to rehabilitation robotics
+● Simplified explanation of robotic gait systems
+● What to observe during the visit
+Session 2: Rehabilitation Centre / Industry Visit
+Students will visit one of the following centres:
+● Genrobotics
+● Amrita Hospital
+● Government General Hospital Trivandrum
+● Noolpuzha Family Health Centre
+● Thanal Brain & Spine Medcity
+● SP Well Fort Hospital
+● Aster Hospitals
+Observed Learning Components
+Participants will observe:
+● Robot-assisted gait rehabilitation (G-Gaitor system)
+● Interaction between human movement and robotic assistance
+● Real-world use of robotics in healthcare
+Session 3: Expert Interaction
+Format:
+15
+● Interaction with doctors/engineers
+● Q&A session
+OVERALL PROGRAM OUTCOMES
+At the end of the program, participants will:
+● Understand the fundamentals of neurorobotics and human–machine interaction
+● Gain hands-on experience in electronics and robotic system building
+● Develop skills in sensing, control, and basic autonomy
+● Connect technical learning with real-world healthcare applications
+● Build curiosity, creativity, and motivation toward STEM and innovation

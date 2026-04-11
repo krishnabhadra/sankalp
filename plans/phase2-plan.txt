@@ -1,0 +1,317 @@
+PHASE II – Undergraduate Students
+TRACK: Human-Centered Neurorobotics & Intelligent Interaction Systems
+Total Duration: 10 Days (4 Days Online Foundation + 3 days online talk sessions + 3 Days
+Offline Workshop Series)
+Level: Undergraduate Students (CSE, ECE, EEE, ME, Biomedical, AI/DS)
+Format: Online Conceptual Sessions + Expert Talks + Offline Hands-on Workshop Series
+INTRODUCTION
+With the evolution of robotics from industrial automation to intelligent, adaptive, and
+human-centered systems, the ability of machines to interpret and respond to human signals
+biological, visual, and auditory has emerged as a critical area of innovation. This track focuses
+on neurorobotics and intelligent interaction systems, integrating robotics, artificial
+intelligence, and human–machine communication.
+The program adopts a progressive learning framework, beginning with a structured online
+foundational series, followed by expert-led sessions, and culminating in an intensive hands-on
+workshop series. This approach ensures that participants transition from conceptual
+understanding to practical implementation and system-level thinking.
+LEARNING OUTCOMES
+By the end of the program, participants will:
+● Develop a strong foundation in robotics, AI, and human–robot interaction
+● Understand and differentiate between multi-modal signals (bio-signals, vision, and audio)
+16
+● Gain hands-on experience in designing human-interactive robotic systems
+● Explore applications in assistive robotics and neuroprosthetics
+● Build, test, and present functional prototypes
+COURSE MODULES
+Parameter Details
+Total Duration 18 Days
+Breakdown 6 Days (Online Foundation) + 3 Days (Online Expert Talks) + 9
+Days (Offline Workshops)
+Target Level Undergraduate Students
+Eligible Branches CSE, ECE, EEE, ME, Biomedical, AI/DS
+Format Online Foundational Series → Expert Talk Series → Offline
+Hands-on Workshops
+Module 1: Common Introductory Program (Online Foundation Series)
+Mode: Online
+Duration: 6 Days
+Objective
+To establish a strong interdisciplinary foundation in neurorobotics, biosignal processing,
+haptics, and cyber-physical systems (CPS), enabling participants to understand how human
+signals, physical systems, and intelligent computation integrate in real-world robotic
+applications.
+Sessions Include:
+Session 1: Introduction to Neurorobotics & Intelligent Systems
+● Evolution of robotics: Industrial → Intelligent → Human-centered systems
+● Introduction to neurorobotics and human–machine interfaces
+● Applications in healthcare, assistive systems, and rehabilitation
+Session 2: Fundamentals of Robotic & Cyber-Physical Systems (CPS)
+17
+● Core components: sensors, controllers, actuators
+● Concept of CPS: integration of computation, networking, and physical processes
+● Examples: smart healthcare systems, autonomous devices
+Session 3: Signals & Perception in Robotics
+● Types of signals: audio, image, and biological
+● Basics of perception systems in robotics
+● Role of signal processing in intelligent decision-making
+Session 4: Haptics & Human Sensory Feedback Systems
+● Introduction to haptic systems and tactile feedback
+● Role of touch and force feedback in robotics
+● Applications in prosthetics, teleoperation, and rehabilitation
+Session 5: AI & Machine Learning for Human-Centered Robotics
+● Role of AI in perception, prediction, and control
+● Applications: gesture recognition, biosignal interpretation, adaptive systems
+● Introduction to intelligent assistive technologies
+Session 6: Brain–Computer Interface (BCI) & Advanced Interaction Systems
+● Fundamentals of EEG and EMG-based interfaces
+● Signal → Processing → Action pipeline
+● Integration with CPS and assistive robotic systems
+Module 2: Expert Talk Series
+Mode: Online
+Duration: 3 Days
+OBJECTIVE
+To provide participants with insights into real-world applications, system design approaches, and
+ethical considerations across neurorobotics, healthcare robotics, and cyber-physical systems.
+18
+SESSION THEMES (Track-Aligned)
+Session 1: Human-Centered Robotics & Healthcare Systems
+Session 2: Smart Systems, CPS & Responsible Innovation
+Session 3: Haptics in Virtual & Augmented Reality
+LEARNING OUTCOME
+Participants will:
+● Gain exposure to practical applications across all tracks
+● Understand end-to-end system design (sensing to actuation)
+● Develop awareness of real-world constraints and ethical implications
+● Be better prepared to design feasible and impactful hackathon solutions
+Module 3: Hands-On Workshop Series
+Mode: Offline
+Duration: 3 Days
+Structure:Track-Based Implementation with Guided Technical Mentorship
+WORKSHOP OBJECTIVE
+To enable participants to develop human-centered robotic systems through parallel,
+specialized tracks focusing on bio-signals, vision, and audio-based interaction. Each track
+follows an independent yet structurally aligned technical workflow, ensuring depth in
+domain-specific learning while maintaining consistency in execution.
+WORKSHOP STRUCTURE
+Participants are divided into three tracks at the beginning of the workshop. Each track
+progresses simultaneously through system design, development, integration, and demonstration,
+guided by dedicated mentors.
+TRACK 1: Neurorobotics & Multimodal Bio-Signal Control
+EMG-Driven Assistive Robotic System with Vision-Assisted
+Interaction
+INTRODUCTION
+19
+This track focuses on neurorobotics and the decoding of human physiological signals into robotic
+actions. Participants will learn core principles of bio-signal acquisition, neural intent
+interpretation, and assistive system design, with a special emphasis on electromyography
+(EMG)-based control systems.
+To enhance system intelligence and usability, vision-based gesture recognition is integrated as a
+secondary input, enabling context-aware and intuitive human–robot interaction.
+The workshop simulates real-world assistive technologies such as prosthetic limbs, rehabilitation
+devices, and human-augmentation systems where robots respond directly to human intent.
+DAY 1: Bio-Signal Acquisition & Neural Interface Setup
+Objective: Establish a foundational neurorobotic interface using EMG signals.
+Technical Activities:
+● Introduction to neurorobotics and bio-signal-based control
+● Understanding EMG signal characteristics: amplitude, noise, variability
+● Sensor interfacing and real-time analog signal acquisition with Arduino
+● EMG signal calibration (muscle contraction vs baseline noise)
+● Signal visualization via Arduino Serial Plotter
+Learning Outcome:
+Participants build a functional neural interface layer, enabling robotic actuation based on human
+muscle signals.
+DAY 2: Neural Control Systems & Multimodal Integration
+Objective: Develop a robust neurorobotic control system with enhanced responsiveness.
+Core Neurorobotics:
+● Signal filtering to reduce EMG noise and artifacts
+● Threshold tuning and adaptive control strategies
+● Multi-state control logic for graded actuation (e.g., grip strength levels)
+20
+● Precision servo motor calibration
+Integration Activities:
+● Serial communication between Python (vision system) and Arduino
+● Gesture-based supervisory control (mode switching, safety override)
+● Fusion of EMG (primary control) and vision (secondary/contextual control)
+Learning Outcome:
+A refined neurorobotic control system capable of interpreting human intent with improved
+accuracy and stability.
+DAY 3: Assistive System Deployment & Validation
+Objective: Implement and evaluate a complete neurorobotic assistive system.
+Technical Activities:
+● End-to-end system testing (EMG input → signal processing → actuation)
+● Performance validation: accuracy, repeatability, response time
+● Debugging and system optimization
+Learning Outcome:
+A fully functional neurorobotic prototype demonstrating:
+● Bio-signal-driven control
+● Human intent decoding
+● Assistive robotic application
+LEARNING IMPACT
+Participants will gain:
+● A strong foundation in neurorobotics and bio-signal processing
+● Hands-on experience with EMG-based control systems
+● Insight into human–machine neural interfaces
+● Exposure to assistive robotics and rehabilitation technologies
+● The ability to design real-world neurorobotic solutions
+TRACK 2: Haptics & Tactile Human–Robot Interaction
+Project: Haptic-Feedback Teleoperation System
+DAY 1: Tactile Sensing & Data Acquisition
+Objective: Capture physical interaction data from the robot
+21
+Technical Activities:
+● Interfacing Force Sensitive Resistors (FSRs) with microcontrollers
+● Calibrating pressure sensors for grip and contact detection
+● Signal conditioning and noise reduction for tactile data
+● Visualizing real-time pressure maps on a digital interface
+DAY 2: Haptic Rendering & Actuator Control
+Objective: Translate robotic contact into human sensation
+Technical Activities:
+● Driving Linear Resonant Actuators (LRA) or vibration motors
+● Mapping force intensity to vibration frequency/amplitude
+● Implementing haptic drivers (e.g., DRV2605L) for distinct tactile effects
+● Developing "haptic icons" (e.g., double-pulse for collision, steady buzz for contact)
+● Minimizing the latency between sensor input and tactile output
+DAY 3: Closed-Loop Validation & Demonstration
+Objective: Achieve intuitive "blind" control via touch feedback
+Technical Activities:
+● End-to-end testing (Robot contact → Processing → Wearable feedback)
+● Testing sensory substitution (using touch to guide movement without looking)
+TRACK 3: Adaptive Cyber-Physical Systems for Industrial Safety
+& Smart Environments
+Project Theme: Intelligent Safety & Monitoring CPS Node
+PROGRAM OVERVIEW
+This track focuses on the design and implementation of cyber-physical systems (CPS) that
+integrate real-world sensing, edge-level intelligence, and cloud connectivity to enable
+autonomous monitoring and safety-oriented decision-making.
+Participants will develop a smart CPS node capable of:
+● Detecting environmental conditions
+● Performing real-time local control
+● Communicating with cloud systems
+22
+● Responding to safety-critical scenarios
+The track emphasizes closed-loop system design, resilience, and real-world industrial relevance.
+DAY 1: Physical Sensing & Edge-Level Intelligence
+Objective: To establish a foundational cyber-physical system through real-time sensing and local
+decision-making.
+Technical Focus Areas
+CPS Fundamentals
+● Introduction to cyber-physical systems architecture
+● Understanding the sensing → processing → actuation loop
+Sensor Integration & Data Acquisition
+● Interfacing environmental sensors (e.g., temperature, light, gas, or proximity)
+● Real-time data acquisition and calibration
+● Basic signal conditioning and noise handling
+Edge-Level Control Logic
+● Threshold-based and rule-based decision-making
+● Local automation strategies for safety and environmental response
+● Implementation of manual override mechanisms
+Learning Outcome
+Participants build a self-regulating CPS node capable of sensing environmental conditions and
+executing local control actions.
+DAY 2: Cyber Integration & Digital Monitoring Systems
+Objective: To extend the physical system into a connected CPS through cloud integration and
+real-time monitoring.
+Technical Focus Areas
+Connectivity & Communication
+● Establishing wireless communication between edge device and cloud platform
+● Introduction to lightweight communication protocols (e.g., MQTT or similar)
+Cloud Dashboard & Visualization
+● Development of a real-time monitoring interface
+23
+● Visualization of environmental data streams
+Bi-Directional Interaction
+● Remote monitoring of system state
+● Remote triggering of control actions
+System Enhancement
+● Data smoothing and filtering for stable system behavior
+● Event-driven alerts for abnormal conditions (e.g., threshold violations)
+Learning Outcome
+Participants develop a connected CPS system with real-time monitoring and remote interaction
+capabilities, forming a basic digital representation of the physical system.
+DAY 3: Adaptive Control, System Resilience & Deployment
+Objective: To implement an intelligent, resilient CPS capable of operating reliably under
+real-world conditions.
+Technical Focus Areas
+Adaptive System Behavior
+● Dynamic control strategies based on environmental trends
+● Context-aware decision-making
+System Reliability & Fault Tolerance
+● Designing fail-safe mechanisms
+● Ensuring system functionality under communication loss or sensor anomalies
+Full System Integration
+● End-to-end pipeline:
+Sensing → Edge Processing → Cloud Interaction → Actuation
+SPARSHA 2027 CONCLAVE
+24
+SPARSHA 2027 is the flagship one-day hybrid research conclave at the core of SANKALP. It is
+designed as a high-visibility platform to connect participants with global research frontiers,
+industry innovation, and IEEE RAS leadership, while positioning the Kerala robotics ecosystem
+at a national and international level.
+The conclave brings together researchers, industry leaders, and graduate participants to facilitate
+knowledge exchange, research dissemination, and collaborative innovation in neurorobotics,
+haptics, and intelligent systems. It also serves as a public-facing component of the program,
+demonstrating the regional impact and outreach of the IEEE Robotics and Automation Society.
+Overview
+● Event Name: SPARSHA 2027: Frontiers in Neurorobotics, Haptics & Intelligent
+Systems
+● Format: Hybrid (In-person + Global Livestream)
+● Expected In-Person Attendance: 300+
+● Expected Online Viewership: 500+
+● Venue: IIT Palakkad / IIIT Kottayam
+● Duration: Full Day (9:00 AM – 6:00 PM)
+Time Slot Event Details
+9:00 – 9:30 AM Inaugural Ceremony Welcome by IEEE RAS Kerala
+Chapter Chair; message from IEEE
+RAS President / Region 10
+representative
+9:30 – 10:30 AM Keynote 1 – Research
+Frontiers
+Eminent researcher (IIT / NIT /
+International RAS member) on
+advanced neurorobotics research
+10:30 – 11:30 AM Keynote 2 – Industry
+Innovation
+Industry leader from Genrobotics /
+Astrek Innovations on
+commercialization of assistive
+robotics
+11:30 AM – 1:00
+PM
+Panel Discussion “Can India Lead the Next Decade
+of Human–Robot Interaction?” –
+Faculty, industry experts, and
+GSAC representative
+1:00 – 2:00 PM Networking Lunch Structured interaction between
+graduate participants, researchers,
+and industry representatives
+25
+2:00 – 4:00 PM Graduate Research Poster
+Presentations
+SANKALP participants present
+research proposals evaluated by
+faculty panel
+2:00 – 4:00 PM Startup & Innovation
+Showcase
+Demonstrations by industry
+partners (Eye ROV, Rosh AI,
+Netrasemi, Inker Robotics, Astrek
+Innovations)
+4:00 – 5:00 PM Research–Industry Interface
+Session
+Companies present real-world
+problems; participants propose
+initial research approaches
+5:00 – 6:00 PM Awards & Closing Ceremony Best poster awards, IEEE RAS
+membership drive, SANKALP
+Alumni Network launch
+Significance and Impact
+The SPARSHA 2027 Conclave significantly strengthens the Main Track proposal by:
+● Establishing a high-visibility, public-facing research platform demonstrating IEEE RAS
+regional impact
+● Providing graduate participants with direct interaction with national and international
+researchers and industry leaders
+● Enabling the Research–Industry Interface Session, which generates real-world problem
+statements for continued research beyond the program
+● Expanding reach through global livestreaming, strengthening inter-state and international
+collaboration networks
+● Delivering measurable and reportable outcomes, including research presentations,
+industry engagement, and community expansion

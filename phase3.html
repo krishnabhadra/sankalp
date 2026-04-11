@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase III — Graduate Research Bootcamp | SANKALP 2026</title>
+<meta name="description" content="A 5-day intensive research bootcamp at IIT Palakkad for early-stage graduate students in neurorobotics, AI, and intelligent systems. Part of SANKALP 2026 by IEEE RAS Kerala Chapter.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #0f0f0f;
+  --white3: #555555;
+  --border: rgba(0,0,0,0.1);
+  --border2: rgba(0,0,0,0.2);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #ffffff;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.018;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── HEADER ── */
+#header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.header-container {
+  width: 100%;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left img { height: 40px; }
+.navbar { display: flex; align-items: center; gap: 20px; }
+.navbar a { text-decoration: none; color: #555; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+.navbar a:hover { color: #000; }
+.nav-cta { background: #111 !important; color: #fff !important; padding: 8px 16px; border-radius: 6px; font-weight: 600 !important; }
+.nav-cta:hover { background: #333 !important; }
+
+/* ── SHARED ── */
+section { position: relative; z-index: 1; padding: 7rem 5%; }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #888; margin-bottom: 1.25rem;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::before { content: ''; width: 24px; height: 1px; background: #aaa; flex-shrink: 0; }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 400; line-height: 0.95;
+  letter-spacing: 0.04em; color: #0f0f0f;
+  margin-bottom: 1.25rem;
+}
+
+.section-sub {
+  font-size: 1rem; color: #666; font-weight: 300;
+  max-width: 560px; margin-bottom: 4rem; line-height: 1.8;
+}
+
+.section-divider { position: relative; z-index: 1; height: 1px; background: var(--border); margin: 0 5%; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; background: #0f0f0f; color: #fff;
+  text-decoration: none; font-family: var(--font-body);
+  font-size: 14px; font-weight: 700; border-radius: 6px;
+  transition: all 0.2s; border: none; cursor: pointer; letter-spacing: 0.02em;
+}
+.btn-primary:hover { background: #333; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border: 1px solid rgba(0,0,0,0.25);
+  color: #0f0f0f; text-decoration: none; font-size: 14px;
+  font-weight: 500; border-radius: 6px; transition: all 0.2s;
+  background: transparent; cursor: pointer;
+}
+.btn-outline:hover { border-color: rgba(0,0,0,0.5); background: rgba(0,0,0,0.04); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 0 5% 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 64px 64px; pointer-events: none;
+}
+.hero-accent-circle {
+  position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none;
+}
+
+.hero-year-label {
+  font-family: var(--font-mono); font-size: 12px; color: #555;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px;
+}
+.hero-year-label::before { content: ''; width: 32px; height: 1px; background: #aaa; }
+
+.hero-program-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  letter-spacing: 0.04em; line-height: 0.92;
+  color: #0f0f0f; margin-bottom: 0.5rem;
+}
+.hero-phase-label {
+  font-family: var(--font-mono); font-size: 13px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #888; margin-bottom: 1.5rem; padding-left: 4px;
+}
+
+.hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+.hero-desc-block { max-width: 520px; }
+.hero-desc-block p { font-size: 1.05rem; color: #555; font-weight: 300; line-height: 1.75; margin-bottom: 2rem; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.hero-stat-val { font-family: var(--font-display); font-size: 3.5rem; line-height: 1; color: #0f0f0f; }
+.hero-stat-label { font-family: var(--font-mono); font-size: 10px; color: #888; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
+/* ── WHO'S THIS FOR ── */
+.audience-grid {
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem; align-items: start;
+}
+.audience-copy p { color: #555; margin-bottom: 1.25rem; font-weight: 300; line-height: 1.85; font-size: 1rem; }
+
+.highlight-box {
+  background: #f4f4f2; border: 1px solid rgba(0,0,0,0.1);
+  border-left: 3px solid #0f0f0f; border-radius: 8px;
+  padding: 1.25rem 1.5rem; margin-top: 2rem;
+  font-size: 0.95rem; color: #333; font-style: italic; font-weight: 300;
+}
+
+.mentor-cards { display: flex; flex-direction: column; gap: 10px; }
+.mentor-card {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px; background: #f9f9f8;
+  transition: border-color 0.2s, background 0.2s;
+}
+.mentor-card:hover { border-color: rgba(0,0,0,0.15); background: #f4f4f2; }
+.mentor-icon {
+  width: 38px; height: 38px; border-radius: 8px;
+  background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+}
+.mentor-text h4 { font-size: 13px; font-weight: 700; color: #0f0f0f; margin-bottom: 3px; letter-spacing: 0.02em; }
+.mentor-text p { font-size: 12px; color: #777; line-height: 1.5; }
+
+/* ── OUTCOMES ── */
+.outcomes-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+.outcome-card {
+  background: #f9f9f8; border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.75rem; text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.outcome-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+.outcome-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+.outcome-title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.outcome-desc { font-size: 12.5px; color: var(--white3); line-height: 1.6; }
+
+/* ── 5-DAY JOURNEY ── */
+.journey-grid { display: flex; flex-direction: column; gap: 0; position: relative; }
+.journey-grid::before {
+  content: ''; position: absolute; left: 30px; top: 30px; bottom: 30px;
+  width: 1px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.15) 5%, rgba(0,0,0,0.15) 95%, transparent);
+}
+
+.journey-item { display: flex; gap: 2rem; padding: 1.25rem 0; position: relative; }
+.journey-num {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #fff; border: 1px solid rgba(0,0,0,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 22px;
+  letter-spacing: 0.05em; color: #0f0f0f;
+  flex-shrink: 0; z-index: 2; position: relative;
+}
+.journey-content {
+  flex: 1; background: #f9f9f8; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px; padding: 1.5rem 1.75rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.journey-content:hover { border-color: rgba(0,0,0,0.15); transform: translateX(4px); }
+
+.journey-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 0.6rem; flex-wrap: wrap; }
+.journey-title { font-size: 1rem; font-weight: 700; color: #0f0f0f; }
+.journey-badge {
+  padding: 2px 10px; border-radius: 4px; font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  background: rgba(0,0,0,0.06); color: #0f0f0f; border: 1px solid rgba(0,0,0,0.15);
+}
+.badge-research { background: rgba(100,60,180,0.08); color: #5533aa; border: 1px solid rgba(100,60,180,0.2); }
+
+.journey-highlights {
+  list-style: none; display: flex; flex-direction: column; gap: 5px; margin-top: 0.5rem;
+}
+.journey-highlights li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #555; }
+.journey-highlights li::before { content: '→'; color: #0f0f0f; font-size: 11px; flex-shrink: 0; }
+
+/* ── FINAL OUTPUT CALLOUT ── */
+.callout-inner {
+  background: #f9f9f8; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 20px; padding: 3rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3.5rem; align-items: start;
+}
+.callout-left h3 {
+  font-family: var(--font-display); font-size: 2.5rem;
+  letter-spacing: 0.04em; color: #0f0f0f;
+  margin-bottom: 1.25rem; line-height: 1;
+}
+.callout-left p {
+  font-size: 14px; color: #666; line-height: 1.8;
+  margin-bottom: 1.25rem; font-weight: 300;
+}
+.callout-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.12); border-radius: 6px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: #333; letter-spacing: 0.06em; text-transform: uppercase;
+  margin-right: 8px; margin-bottom: 0.5rem;
+}
+
+.callout-pillars { display: flex; flex-direction: column; gap: 10px; }
+.callout-pillar {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px; background: #fff; transition: border-color 0.2s;
+}
+.callout-pillar:hover { border-color: rgba(0,0,0,0.15); }
+.callout-pillar-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0;
+}
+.callout-pillar-text h4 { font-size: 13px; font-weight: 700; color: #0f0f0f; margin-bottom: 2px; }
+.callout-pillar-text p { font-size: 12px; color: #777; line-height: 1.5; }
+
+/* ── RESEARCH PATHWAYS ── */
+.pathways-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.pathway-card {
+  background: #f9f9f8; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px; padding: 2rem; position: relative;
+  overflow: hidden; transition: border-color 0.3s, transform 0.3s;
+}
+.pathway-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: transparent; transition: background 0.3s;
+}
+.pathway-card:hover { border-color: rgba(0,0,0,0.18); transform: translateY(-4px); }
+.pathway-card:hover::before { background: #0f0f0f; }
+
+.pathway-icon {
+  width: 48px; height: 48px; background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 1.25rem;
+}
+.pathway-title { font-size: 1.1rem; font-weight: 700; color: #0f0f0f; margin-bottom: 0.5rem; line-height: 1.2; }
+.pathway-desc { font-size: 13.5px; color: #666; line-height: 1.65; margin-bottom: 1rem; }
+.pathway-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.pathway-tag {
+  padding: 3px 10px; background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 4px;
+  font-family: var(--font-mono); font-size: 10px; color: #777;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+/* ── CTA ── */
+.apply-inner {
+  background: #fcfcfc; border: 1px solid var(--border);
+  border-radius: 20px; padding: 4rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.apply-inner::before {
+  content: ''; position: absolute; top: -100px; left: 50%;
+  transform: translateX(-50%); width: 500px; height: 400px;
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none;
+}
+.apply-title {
+  font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.04em; color: var(--white);
+  margin-bottom: 1.25rem; position: relative; line-height: 1;
+}
+.apply-desc {
+  color: var(--white3); font-size: 1rem; font-weight: 300;
+  max-width: 520px; margin: 0 auto 2rem; position: relative; line-height: 1.75;
+}
+.eligibility-row {
+  display: flex; justify-content: center; gap: 10px;
+  flex-wrap: wrap; margin-bottom: 2.5rem; position: relative;
+}
+.elig-pill {
+  padding: 8px 18px; border: 1px solid var(--border2);
+  border-radius: 6px; font-size: 13px; color: var(--white3); font-weight: 500;
+}
+.apply-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1; padding: 2rem 5%;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.06em; color: var(--white); }
+footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono); letter-spacing: 0.04em; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero { padding: 100px 40px 60px; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+  .hero-stats { gap: 2rem; }
+  .callout-inner, .audience-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 768px) {
+  #header .header-container { padding: 10px 20px; }
+  .header-left img { height: 30px; }
+  .navbar a:not(.nav-cta) { display: none; }
+  .nav-cta { padding: 6px 12px; font-size: 12px; }
+  .hero { padding: 90px 20px 40px; justify-content: center; }
+  .hero-program-name { font-size: clamp(2.5rem, 9vw, 4.5rem); }
+  .hero-desc-block { max-width: 100%; }
+  .hero-desc-block p { font-size: 14px; }
+  .hero-stats { width: 100%; justify-content: space-between; gap: 1rem; }
+  .hero-stat-val { font-size: 2rem; }
+  .hero-stat-label { font-size: 9px; }
+  section { padding: 4rem 20px; }
+  .section-title { font-size: 2.2rem; }
+  .section-sub { font-size: 14px; }
+  .btn-primary, .btn-outline { padding: 10px 18px; font-size: 13px; }
+  .journey-grid::before { left: 26px; }
+  .journey-num { width: 52px; height: 52px; font-size: 18px; }
+  .pathways-grid { grid-template-columns: 1fr; }
+  .callout-inner { padding: 2rem; }
+  .apply-inner { padding: 2.5rem 1.5rem; }
+  footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+@media (max-width: 480px) {
+  .hero-stat-val { font-size: 1.6rem; }
+  .nav-cta { padding: 5px 10px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-container">
+    <div class="header-left">
+      <a href="index.html"><img src="/assets/RAS main logo.png" alt="IEEE RAS Kerala Chapter"></a>
+    </div>
+    <nav class="navbar">
+      <a href="index.html#about">About</a>
+      <a href="index.html#program">Program</a>
+      <a href="index.html#tracks">Tracks</a>
+      <a href="index.html#bootcamp">Bootcamp</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════ -->
+<!--                  HERO                  -->
+<!-- ═══════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-accent-circle"></div>
+
+  <div class="hero-year-label">SANKALP 2026 · Phase III · Graduate Track</div>
+
+  <div class="hero-program-name">GRADUATE<br>RESEARCH<br>BOOTCAMP</div>
+  <div class="hero-phase-label">From Coursework to Active Research · IIT Palakkad</div>
+
+  <div class="hero-bottom">
+    <div class="hero-desc-block">
+      <p>A 5-day intensive research-oriented program bridging the gap between academic coursework and active robotics research. Mentored by IIT Palakkad faculty, GSAC members, and IEEE RAS experts — culminating in evaluated research proposals and a pathway to publication.</p>
+      <div class="hero-actions">
+        <a href="apply.html" class="btn-primary">Apply Now →</a>
+        <a href="#journey" class="btn-outline">View Program</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">5</div>
+        <div class="hero-stat-label">Days Intensive</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">IIT</div>
+        <div class="hero-stat-label">Palakkad Venue</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">PG</div>
+        <div class="hero-stat-label">M.Tech / M.S. / Ph.D.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--            WHO'S THIS FOR              -->
+<!-- ═══════════════════════════════════════ -->
+<section id="audience">
+  <div class="section-label">Who's This For</div>
+  <h2 class="section-title">THE ELITE<br>RESEARCH<br>EXPERIENCE.</h2>
+  <p class="section-sub">Designed exclusively for early-stage graduate students serious about contributing to the global robotics research community.</p>
+
+  <div class="audience-grid">
+    <div class="audience-copy reveal">
+      <p>This bootcamp is for M.Tech, M.S., and Ph.D. Year 1–2 students who have strong academic foundations but need structured guidance to transition into active research — from identifying problems to formulating proposals to publishing in IEEE venues.</p>
+      <p>Every participant leaves with a formal 2-page research proposal evaluated by a faculty panel, and top proposals are selected for poster presentation at the NeuroFrontiers 2027 Conclave.</p>
+
+      <div class="highlight-box">
+        "The Graduate Research Bootcamp is the defining element of SANKALP's Main Track — it bridges coursework and active research, preparing participants to contribute to the global robotics research community."
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div class="section-label" style="margin-bottom:1.25rem;">Mentorship Panel</div>
+      <div class="mentor-cards">
+        <div class="mentor-card">
+          <div class="mentor-icon">🏛️</div>
+          <div class="mentor-text">
+            <h4>IIT Palakkad Faculty</h4>
+            <p>Core faculty mentors guiding research methodology, experimental design, and proposal evaluation.</p>
+          </div>
+        </div>
+        <div class="mentor-card">
+          <div class="mentor-icon">🧑‍🔬</div>
+          <div class="mentor-text">
+            <h4>GSAC Members</h4>
+            <p>Graduate Student Advisory Committee members providing one-on-one mentorship and paper reading facilitation.</p>
+          </div>
+        </div>
+        <div class="mentor-card">
+          <div class="mentor-icon">📡</div>
+          <div class="mentor-text">
+            <h4>IEEE RAS Kerala Chapter Faculty</h4>
+            <p>Chapter faculty advisors supporting IEEE writing standards, publication pathways, and career guidance.</p>
+          </div>
+        </div>
+        <div class="mentor-card">
+          <div class="mentor-icon">🎓</div>
+          <div class="mentor-text">
+            <h4>Evaluation Panel</h4>
+            <p>Faculty from IIT Palakkad, IIIT Kottayam, and NIT Calicut evaluate final research proposals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--        WHAT YOU'LL WALK AWAY WITH      -->
+<!-- ═══════════════════════════════════════ -->
+<section id="outcomes">
+  <div class="section-label">What You'll Walk Away With</div>
+  <h2 class="section-title">NOT JUST<br>KNOWLEDGE.<br>A RESEARCH EDGE.</h2>
+  <p class="section-sub">Every participant leaves with tangible research artifacts, skills, and a clear pathway toward IEEE publication and beyond.</p>
+
+  <div class="outcomes-grid">
+    <div class="outcome-card reveal">
+      <span class="outcome-icon">📄</span>
+      <div class="outcome-title">Research Proposal</div>
+      <p class="outcome-desc">A formal 2-page proposal — motivation, related work, methodology, expected outcomes, and timeline — evaluated by faculty.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-1">
+      <span class="outcome-icon">✍️</span>
+      <div class="outcome-title">IEEE Writing Skills</div>
+      <p class="outcome-desc">Hands-on experience writing abstracts, introductions, and related work sections to IEEE conference and journal standards.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-2">
+      <span class="outcome-icon">📚</span>
+      <div class="outcome-title">Paper Reading Ability</div>
+      <p class="outcome-desc">Structured methodology for reading and critiquing IEEE RA-L and ICRA papers — problem, method, results, limitations.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-3">
+      <span class="outcome-icon">🏆</span>
+      <div class="outcome-title">NeuroFrontiers Poster</div>
+      <p class="outcome-desc">Top proposals selected for poster presentation at NeuroFrontiers 2027 — with guided poster design and presentation coaching.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-1">
+      <span class="outcome-icon">🧭</span>
+      <div class="outcome-title">Research Pathway Clarity</div>
+      <p class="outcome-desc">A clear map of PhD opportunities, IEEE RAS conferences, publication venues, travel grants, and TC involvement.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--           5-DAY JOURNEY                -->
+<!-- ═══════════════════════════════════════ -->
+<section id="journey">
+  <div class="section-label">5-Day Journey</div>
+  <h2 class="section-title">5 DAYS.<br>ONE MISSION.</h2>
+  <p class="section-sub">A structured progression from research methodology through frontier topics to a formal, faculty-evaluated research proposal.</p>
+
+  <div class="journey-grid">
+
+    <!-- DAY 1 -->
+    <div class="journey-item reveal">
+      <div class="journey-num">01</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Research Methodology in Robotics</span>
+          <span class="journey-badge badge-research">Day 1</span>
+        </div>
+        <ul class="journey-highlights">
+          <li>Research problem identification, literature review strategies, and gap analysis</li>
+          <li>IEEE paper anatomy — writing abstracts, introductions, and related work sections</li>
+          <li>Experimental design, reproducibility, and statistical analysis for robotics</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="journey-item reveal reveal-delay-1">
+      <div class="journey-num">02</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Advanced Neurorobotics Research Frontiers</span>
+          <span class="journey-badge badge-research">Day 2</span>
+        </div>
+        <ul class="journey-highlights">
+          <li>EEG/EMG signal decoding — feature extraction (time, frequency, wavelet) and classification (SVM, CNN, LSTM)</li>
+          <li>BCI paradigms: P300, SSVEP, Motor Imagery — and the ethics of neurotechnology</li>
+          <li>Neuroprosthetics research: dexterous hands, sensory feedback, exoskeleton control</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="journey-item reveal reveal-delay-2">
+      <div class="journey-num">03</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">AI &amp; Machine Learning for Intelligent Robotics</span>
+          <span class="journey-badge badge-research">Day 3</span>
+        </div>
+        <ul class="journey-highlights">
+          <li>Deep learning architectures for EEG/EMG — transfer learning and biosignal data augmentation</li>
+          <li>Reinforcement learning for adaptive prosthetic control and sim-to-real transfer</li>
+          <li>Hands-on paper reading workshop — 3 recent IEEE RA-L / ICRA papers, GSAC-facilitated</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="journey-item reveal reveal-delay-1">
+      <div class="journey-num">04</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Research Problem Formulation &amp; Prototyping</span>
+          <span class="journey-badge badge-research">Day 4</span>
+        </div>
+        <ul class="journey-highlights">
+          <li>Scoping tractable research questions — gap analysis, feasibility, and 6-month timelines</li>
+          <li>Research prototype design principles — instrumentation, logging, and version control</li>
+          <li>Team proposal drafting session — 2–3 students per team, mentored by GSAC and faculty</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="journey-item reveal reveal-delay-2">
+      <div class="journey-num">05</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Presentations &amp; NeuroFrontiers Preparation</span>
+          <span class="journey-badge badge-research">Day 5</span>
+        </div>
+        <ul class="journey-highlights">
+          <li>10-minute formal proposal presentations + 5-minute Q&A, evaluated by faculty panel</li>
+          <li>Top proposals selected for NeuroFrontiers 2027 poster — with poster design guidance</li>
+          <li>IEEE RAS career pathways: PhD opportunities, conferences, publications, and grants</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--          THE FINAL OUTPUT              -->
+<!-- ═══════════════════════════════════════ -->
+<section id="output">
+  <div class="section-label">The Final Output</div>
+  <h2 class="section-title">PROPOSE.<br>PRESENT.<br>GET SELECTED.</h2>
+  <p class="section-sub">The bootcamp culminates in formal research proposal presentations — evaluated by a multi-institutional faculty panel.</p>
+
+  <div class="callout-inner reveal">
+    <div class="callout-left">
+      <h3>YOUR RESEARCH.<br>THEIR STAGE.</h3>
+      <p>Teams of 2–3 graduate students present a 2-page formal research proposal covering motivation, related work, methodology, expected outcomes, and a realistic timeline.</p>
+      <p>Proposals are evaluated on novelty, feasibility, methodology, potential impact, and clarity. The best are selected to present as posters at the NeuroFrontiers 2027 Conclave — putting your research in front of the wider IEEE RAS community.</p>
+      <div>
+        <span class="callout-badge">📄 2-Page Proposal</span>
+        <span class="callout-badge">🎤 10 + 5 Min Format</span>
+      </div>
+    </div>
+
+    <div class="callout-pillars">
+      <div class="callout-pillar">
+        <div class="callout-pillar-icon">🏛️</div>
+        <div class="callout-pillar-text">
+          <h4>IIT Palakkad</h4>
+          <p>Faculty evaluators from the host institution — guiding novelty and research methodology assessment.</p>
+        </div>
+      </div>
+      <div class="callout-pillar">
+        <div class="callout-pillar-icon">🎓</div>
+        <div class="callout-pillar-text">
+          <h4>IIIT Kottayam</h4>
+          <p>Evaluation support ensuring cross-institutional rigor and diverse research perspectives.</p>
+        </div>
+      </div>
+      <div class="callout-pillar">
+        <div class="callout-pillar-icon">🔬</div>
+        <div class="callout-pillar-text">
+          <h4>NIT Calicut</h4>
+          <p>Additional faculty panelists assessing feasibility, impact, and technical soundness.</p>
+        </div>
+      </div>
+      <div class="callout-pillar">
+        <div class="callout-pillar-icon">🏆</div>
+        <div class="callout-pillar-text">
+          <h4>NeuroFrontiers 2027 Selection</h4>
+          <p>Top proposals are selected for poster presentation at the NeuroFrontiers Conclave — with design guidance and presentation coaching.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--          RESEARCH PATHWAYS             -->
+<!-- ═══════════════════════════════════════ -->
+<section id="pathways">
+  <div class="section-label">Research Pathways</div>
+  <h2 class="section-title">WHAT'S<br>BEYOND.</h2>
+  <p class="section-sub">The bootcamp doesn't end on Day 5. It opens doors to PhD programs, top-tier conferences, publication venues, and IEEE RAS resources.</p>
+
+  <div class="pathways-grid">
+    <div class="pathway-card reveal">
+      <div class="pathway-icon">🎓</div>
+      <div class="pathway-title">PhD Opportunities</div>
+      <p class="pathway-desc">Guidance on pursuing doctoral research in robotics — at top Indian institutions (IITs, IIITs, NITs) and international labs working on neurorobotics, haptics, and CPS.</p>
+      <div class="pathway-tags">
+        <span class="pathway-tag">India</span>
+        <span class="pathway-tag">International</span>
+        <span class="pathway-tag">Research Labs</span>
+      </div>
+    </div>
+
+    <div class="pathway-card reveal reveal-delay-1">
+      <div class="pathway-icon">🌐</div>
+      <div class="pathway-title">IEEE RAS Conferences</div>
+      <p class="pathway-desc">Navigate the landscape of top-tier IEEE RAS conferences — where your research can reach the global robotics community and connect with leading researchers.</p>
+      <div class="pathway-tags">
+        <span class="pathway-tag">ICRA</span>
+        <span class="pathway-tag">IROS</span>
+        <span class="pathway-tag">RO-MAN</span>
+        <span class="pathway-tag">Humanoids</span>
+      </div>
+    </div>
+
+    <div class="pathway-card reveal reveal-delay-2">
+      <div class="pathway-icon">📑</div>
+      <div class="pathway-title">Publication Tracks</div>
+      <p class="pathway-desc">Understand the publication ecosystem — from letters to journals — and learn where to submit, how to target scope, and how to respond to reviews.</p>
+      <div class="pathway-tags">
+        <span class="pathway-tag">IEEE RA-L</span>
+        <span class="pathway-tag">TRO</span>
+        <span class="pathway-tag">TASE</span>
+      </div>
+    </div>
+
+    <div class="pathway-card reveal reveal-delay-1">
+      <div class="pathway-icon">💰</div>
+      <div class="pathway-title">RAS Funding &amp; Grants</div>
+      <p class="pathway-desc">Information on IEEE RAS travel grants, student memberships, Technical Committee involvement, and funding support for early-career researchers.</p>
+      <div class="pathway-tags">
+        <span class="pathway-tag">Travel Grants</span>
+        <span class="pathway-tag">TC Membership</span>
+        <span class="pathway-tag">Student Support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--                  CTA                   -->
+<!-- ═══════════════════════════════════════ -->
+<section id="register">
+  <div class="apply-inner reveal">
+    <div class="apply-title">READY TO<br>RESEARCH?</div>
+    <p class="apply-desc">Join the Graduate Research Bootcamp at IIT Palakkad — 5 days from research methodology to a faculty-evaluated proposal and a pathway to IEEE publication.</p>
+    <div class="eligibility-row">
+      <span class="elig-pill">🎓 M.Tech / M.S. / Ph.D. Year 1–2</span>
+      <span class="elig-pill">📍 IIT Palakkad</span>
+      <span class="elig-pill">🗓️ 5 Days Intensive</span>
+    </div>
+    <div class="apply-buttons">
+      <a href="apply.html" class="btn-primary">Apply for SANKALP 2026 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SANKALP 2026</div>
+  <p>© 2026 IEEE Robotics and Automation Society, Kerala Chapter. All rights reserved.</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

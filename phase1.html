@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pragyan Explorers — Phase I | SANKALP 2026</title>
+<meta name="description" content="Pragyan Explorers: A 3-day foundational program in Neurorobotics & Human–Machine Interaction for school students (Grades 8–12). Part of SANKALP 2026 by IEEE RAS Kerala Chapter.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0a0a0a;
+  --white: #0f0f0f;
+  --white3: #555555;
+  --border: rgba(0,0,0,0.1);
+  --border2: rgba(0,0,0,0.2);
+  --bg: #ffffff;
+  --bg2: #f7f7f5;
+  --bg3: #f0efec;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #ffffff;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* noise texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.018;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── HEADER ── */
+#header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+  width: 100%;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left img { height: 40px; }
+
+.navbar { display: flex; align-items: center; gap: 20px; }
+.navbar a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.navbar a:hover { color: #000; }
+.nav-cta {
+  background: #111 !important;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: #333 !important; }
+
+/* ── SHARED ── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 7rem 5%;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: #aaa;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: #0f0f0f;
+  margin-bottom: 1.25rem;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 300;
+  max-width: 540px;
+  margin-bottom: 4rem;
+  line-height: 1.8;
+}
+
+.section-divider {
+  position: relative;
+  z-index: 1;
+  height: 1px;
+  background: var(--border);
+  margin: 0 5%;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: #0f0f0f;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover { background: #333; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border: 1px solid rgba(0,0,0,0.25);
+  color: #0f0f0f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s;
+  background: transparent;
+  cursor: pointer;
+}
+.btn-outline:hover { border-color: rgba(0,0,0,0.5); background: rgba(0,0,0,0.04); }
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 5% 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.hero-accent-circle {
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-year-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-year-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: #aaa;
+}
+
+.hero-program-name {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  color: #0f0f0f;
+  margin-bottom: 0.5rem;
+}
+
+.hero-phase-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 1.5rem;
+  padding-left: 4px;
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-desc-block { max-width: 520px; }
+.hero-desc-block p {
+  font-size: 1.05rem;
+  color: #555;
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.hero-stat-val {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: #0f0f0f;
+}
+.hero-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #888;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── NEUROROBOTICS EXPLAINER ── */
+.neuro-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.neuro-flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.neuro-icon-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f9f9f8;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.neuro-icon-circle:hover {
+  transform: scale(1.08);
+  border-color: rgba(0,0,0,0.25);
+}
+
+.neuro-flow-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+
+.neuro-flow-arrow {
+  font-size: 1.4rem;
+  color: #ccc;
+  margin: 0 1.5rem;
+  padding-bottom: 28px;
+}
+
+.neuro-desc {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── PROGRAM JOURNEY (TIMELINE) ── */
+.journey-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.journey-grid::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  bottom: 30px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.15) 5%, rgba(0,0,0,0.15) 95%, transparent);
+}
+
+.journey-item {
+  display: flex;
+  gap: 2rem;
+  padding: 1.25rem 0;
+  position: relative;
+}
+
+.journey-num {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  color: #0f0f0f;
+  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
+}
+
+.journey-content {
+  flex: 1;
+  background: #f9f9f8;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.journey-content:hover {
+  border-color: rgba(0,0,0,0.15);
+  transform: translateX(4px);
+}
+
+.journey-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.journey-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f0f0f;
+  letter-spacing: 0.01em;
+}
+
+.journey-badge {
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.06);
+  color: #0f0f0f;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+.badge-field {
+  background: rgba(180,80,0,0.08);
+  color: #994400;
+  border: 1px solid rgba(180,80,0,0.2);
+}
+
+.journey-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 0.5rem;
+}
+.journey-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #555;
+}
+.journey-highlights li::before {
+  content: '→';
+  color: #0f0f0f;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* ── HANDS-ON HIGHLIGHTS ── */
+.hands-on-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.hands-on-card {
+  background: #f9f9f8;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.hands-on-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s;
+}
+.hands-on-card:hover {
+  border-color: rgba(0,0,0,0.18);
+  transform: translateY(-4px);
+}
+.hands-on-card:hover::before { background: #0f0f0f; }
+
+.hands-on-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 1.25rem;
+}
+
+.hands-on-title {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin-bottom: 0.5rem;
+}
+
+.hands-on-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.85rem;
+}
+
+.hands-on-desc {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.65;
+}
+
+/* ── REAL WORLD EXPOSURE ── */
+.exposure-inner {
+  background: #f9f9f8;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 20px;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.exposure-left h3 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  letter-spacing: 0.04em;
+  color: #0f0f0f;
+  margin-bottom: 1.25rem;
+  line-height: 1;
+}
+
+.exposure-left p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+.exposure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.exposure-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exposure-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  background: #ffffff;
+  transition: border-color 0.2s;
+}
+.exposure-pillar:hover { border-color: rgba(0,0,0,0.15); }
+
+.exposure-pillar-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.exposure-pillar-text h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin-bottom: 2px;
+}
+.exposure-pillar-text p {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* ── OUTCOMES ── */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.outcome-card {
+  background: #f9f9f8;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.outcome-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-3px);
+}
+
+.outcome-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+.outcome-title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.outcome-desc { font-size: 12.5px; color: var(--white3); line-height: 1.6; }
+
+/* ── CTA ── */
+.apply-inner {
+  background: #fcfcfc;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.apply-inner::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 400px;
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.apply-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  position: relative;
+  line-height: 1;
+}
+
+.apply-desc {
+  color: var(--white3);
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  position: relative;
+  line-height: 1.75;
+}
+
+.eligibility-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.elig-pill {
+  padding: 8px 18px;
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--white3);
+  font-weight: 500;
+}
+
+.apply-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 5%;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--white3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero { padding: 100px 40px 60px; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+  .hero-stats { gap: 2rem; }
+  .exposure-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  #header .header-container { padding: 10px 20px; }
+  .header-left img { height: 30px; }
+  .navbar a:not(.nav-cta) { display: none; }
+  .nav-cta { padding: 6px 12px; font-size: 12px; }
+
+  .hero { padding: 90px 20px 40px; justify-content: center; }
+  .hero-program-name { font-size: clamp(3rem, 10vw, 5rem); }
+  .hero-desc-block { max-width: 100%; }
+  .hero-desc-block p { font-size: 14px; }
+  .hero-stats { width: 100%; justify-content: space-between; gap: 1rem; }
+  .hero-stat-val { font-size: 2rem; }
+  .hero-stat-label { font-size: 9px; }
+
+  section { padding: 4rem 20px; }
+  .section-title { font-size: 2.2rem; }
+  .section-sub { font-size: 14px; }
+
+  .btn-primary, .btn-outline { padding: 10px 18px; font-size: 13px; }
+
+  .neuro-flow { gap: 0.5rem; }
+  .neuro-icon-circle { width: 64px; height: 64px; font-size: 1.6rem; }
+  .neuro-flow-arrow { margin: 0 0.75rem; font-size: 1.1rem; }
+
+  .journey-grid::before { left: 26px; }
+  .journey-num { width: 52px; height: 52px; font-size: 18px; }
+
+  .hands-on-grid { grid-template-columns: 1fr; }
+
+  .exposure-inner { padding: 2rem; }
+  .apply-inner { padding: 2.5rem 1.5rem; }
+
+  footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+@media (max-width: 480px) {
+  .hero-stat-val { font-size: 1.6rem; }
+  .nav-cta { padding: 5px 10px; font-size: 11px; }
+  .neuro-flow { flex-direction: column; gap: 1rem; }
+  .neuro-flow-arrow { transform: rotate(90deg); margin: 0; padding: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-container">
+    <div class="header-left">
+      <a href="index.html"><img src="/assets/RAS main logo.png" alt="IEEE RAS Kerala Chapter"></a>
+    </div>
+    <nav class="navbar">
+      <a href="index.html#about">About</a>
+      <a href="index.html#program">Program</a>
+      <a href="index.html#tracks">Tracks</a>
+      <a href="index.html#bootcamp">Bootcamp</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-accent-circle"></div>
+
+  <div class="hero-year-label">SANKALP 2026 · Phase I · School Outreach Program</div>
+
+  <div class="hero-program-name">PRAGYAN<br>EXPLORERS</div>
+  <div class="hero-phase-label">Foundational Program in Neurorobotics &amp; Human–Machine Interaction</div>
+
+  <div class="hero-bottom">
+    <div class="hero-desc-block">
+      <p>A structured 3-day experiential learning program introducing school students to the world of neurorobotics, intelligent systems, and real-world human–machine interaction — from circuits to hospital visits.</p>
+      <div class="hero-actions">
+        <a href="apply.html" class="btn-primary">Register Now →</a>
+        <a href="#journey" class="btn-outline">View Program</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">3</div>
+        <div class="hero-stat-label">Days Intensive</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">8–12</div>
+        <div class="hero-stat-label">Grades</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">100%</div>
+        <div class="hero-stat-label">Offline / Hands-on</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- WHAT IS NEUROROBOTICS -->
+<section id="neurorobotics">
+  <div class="section-label">Setting the Context</div>
+  <h2 class="section-title">WHAT IS<br>NEUROROBOTICS?</h2>
+  <p class="section-sub">The science of connecting human signals — brain waves, muscle impulses, gestures — to robotic systems that sense, respond, and assist.</p>
+
+  <div class="neuro-flow reveal">
+    <div class="neuro-flow-step">
+      <div class="neuro-icon-circle">🧠</div>
+      <span class="neuro-flow-label">Brain Signal</span>
+    </div>
+    <div class="neuro-flow-arrow">→</div>
+    <div class="neuro-flow-step">
+      <div class="neuro-icon-circle">⚡</div>
+      <span class="neuro-flow-label">Processing</span>
+    </div>
+    <div class="neuro-flow-arrow">→</div>
+    <div class="neuro-flow-step">
+      <div class="neuro-icon-circle">🤖</div>
+      <span class="neuro-flow-label">Robot Action</span>
+    </div>
+  </div>
+
+  <p class="neuro-desc reveal reveal-delay-1">
+    From prosthetics that read muscle signals to robots that respond to hand gestures — neurorobotics is where neuroscience, AI, and robotics converge to build systems that truly understand humans. In Pragyan Explorers, students experience this fusion firsthand.
+  </p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROGRAM JOURNEY -->
+<section id="journey">
+  <div class="section-label">Program Journey</div>
+  <h2 class="section-title">3 DAYS.<br>ONE JOURNEY.</h2>
+  <p class="section-sub">A carefully designed progression — from foundational concepts to hands-on robot building to real-world hospital exposure.</p>
+
+  <div class="journey-grid">
+    <!-- DAY 1 -->
+    <div class="journey-item reveal">
+      <div class="journey-num">01</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Foundations of Neurorobotics &amp; Human–Machine Interaction</span>
+          <span class="journey-badge">Offline</span>
+        </div>
+        <ul class="journey-highlights">
+          <li>Introduction to neurorobotics — how brain, muscle, voice, and gesture signals control machines</li>
+          <li>Hands-on breadboard circuit building with LEDs and switches</li>
+          <li>Live demos of gesture-controlled and clap-activated systems</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="journey-item reveal reveal-delay-1">
+      <div class="journey-num">02</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Applied Robotics — Sensing, Control &amp; Autonomous Systems</span>
+          <span class="journey-badge">Offline</span>
+        </div>
+        <ul class="journey-highlights">
+          <li>Learn robotic sensing with ultrasonic/IR sensors and decision-making logic</li>
+          <li>Design and build an obstacle-avoiding robot from scratch</li>
+          <li>Test, optimize, and race robots through a navigation challenge</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="journey-item reveal reveal-delay-2">
+      <div class="journey-num">03</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Experiential Learning — Neurorobotics in Real Life</span>
+          <span class="journey-badge badge-field">Field Visit</span>
+        </div>
+        <ul class="journey-highlights">
+          <li>Visit a hospital or industry partner to see rehabilitation robotics in action</li>
+          <li>Observe the G-Gaitor robotic gait system by Genrobotics</li>
+          <li>Interact with doctors and engineers working at the frontier of healthcare robotics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- HANDS-ON HIGHLIGHTS -->
+<section id="hands-on">
+  <div class="section-label">Hands-On Highlights</div>
+  <h2 class="section-title">BUILD IT.<br>TEST IT.<br>SEE IT LIVE.</h2>
+  <p class="section-sub">This isn't a lecture series. Students construct circuits, assemble robots, and walk into real hospitals — learning by doing at every step.</p>
+
+  <div class="hands-on-grid">
+    <div class="hands-on-card reveal">
+      <div class="hands-on-icon">🔌</div>
+      <div class="hands-on-title">Breadboard Circuit Lab</div>
+      <div class="hands-on-sub">Day 1 · Electronics</div>
+      <p class="hands-on-desc">Build a working circuit from scratch on a breadboard — batteries, LEDs, resistors, and switches. Understand how current flows and how simple control logic works.</p>
+    </div>
+
+    <div class="hands-on-card reveal reveal-delay-1">
+      <div class="hands-on-icon">🤖</div>
+      <div class="hands-on-title">Obstacle-Avoiding Robot</div>
+      <div class="hands-on-sub">Day 2 · Robotics Build</div>
+      <p class="hands-on-desc">Assemble a robot with motors, wheels, and ultrasonic sensors. Program it to detect and navigate around obstacles autonomously — then race it through a challenge course.</p>
+    </div>
+
+    <div class="hands-on-card reveal reveal-delay-2">
+      <div class="hands-on-icon">🏥</div>
+      <div class="hands-on-title">Hospital &amp; Industry Visit</div>
+      <div class="hands-on-sub">Day 3 · Field Exposure</div>
+      <p class="hands-on-desc">Step into a real rehabilitation centre or industry lab. See robot-assisted gait systems in action and talk to the doctors and engineers who build them.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- REAL WORLD EXPOSURE -->
+<section id="exposure">
+  <div class="section-label">Real-World Exposure</div>
+  <h2 class="section-title">FROM CLASSROOM<br>TO CLINIC</h2>
+  <p class="section-sub">Day 3 takes learning beyond the lab — students visit real healthcare and robotics facilities to see neurorobotics saving lives.</p>
+
+  <div class="exposure-inner reveal">
+    <div class="exposure-left">
+      <h3>SEE IT.<br>ASK.<br>UNDERSTAND.</h3>
+      <p>Students visit partnered hospitals and rehabilitation centres to observe how robotics is actively transforming healthcare — from gait rehabilitation to assistive devices for mobility.</p>
+      <p>This is where the concepts from Day 1 and Day 2 become real: human signals driving robotic systems that help people walk again.</p>
+      <div>
+        <span class="exposure-badge">🏥 Hospital Visit</span>
+        <span class="exposure-badge">🏭 Industry Visit</span>
+      </div>
+    </div>
+    <div class="exposure-pillars">
+      <div class="exposure-pillar">
+        <div class="exposure-pillar-icon">🦿</div>
+        <div class="exposure-pillar-text">
+          <h4>G-Gaitor Robotic Gait System</h4>
+          <p>Observe India's leading robotic gait rehabilitation system in real clinical use — helping patients relearn movement.</p>
+        </div>
+      </div>
+      <div class="exposure-pillar">
+        <div class="exposure-pillar-icon">🔧</div>
+        <div class="exposure-pillar-text">
+          <h4>Genrobotics</h4>
+          <p>Visit the team behind G-Gaitor and Bandicoot — a Kerala-born robotics company solving real societal challenges.</p>
+        </div>
+      </div>
+      <div class="exposure-pillar">
+        <div class="exposure-pillar-icon">🩺</div>
+        <div class="exposure-pillar-text">
+          <h4>Rehabilitation &amp; Clinical Centres</h4>
+          <p>Partner hospitals including Amrita Hospital, Aster Hospitals, Thanal Brain & Spine Medcity, and Government facilities.</p>
+        </div>
+      </div>
+      <div class="exposure-pillar">
+        <div class="exposure-pillar-icon">💬</div>
+        <div class="exposure-pillar-text">
+          <h4>Expert Interaction</h4>
+          <p>Q&A sessions with doctors, biomedical engineers, and robotics researchers working at the intersection of tech and healthcare.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- OUTCOMES -->
+<section id="outcomes">
+  <div class="section-label">What You'll Walk Away With</div>
+  <h2 class="section-title">NOT JUST<br>KNOWLEDGE.</h2>
+  <p class="section-sub">Every student leaves with practical skills, real experiences, and a spark to explore STEM further.</p>
+
+  <div class="outcomes-grid">
+    <div class="outcome-card reveal">
+      <span class="outcome-icon">🧠</span>
+      <div class="outcome-title">Neurorobotics Fluency</div>
+      <p class="outcome-desc">Understand how human signals — brain, muscle, gesture — connect to and control robotic systems.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-1">
+      <span class="outcome-icon">🔧</span>
+      <div class="outcome-title">Real Build Experience</div>
+      <p class="outcome-desc">Go home having built a circuit and a working robot with your own hands — not just watched a demo.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-2">
+      <span class="outcome-icon">🏥</span>
+      <div class="outcome-title">Healthcare Exposure</div>
+      <p class="outcome-desc">See exactly how robotics is used in hospitals today — and meet the engineers and doctors making it happen.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-3">
+      <span class="outcome-icon">🎯</span>
+      <div class="outcome-title">Sensing &amp; Autonomy Skills</div>
+      <p class="outcome-desc">Learn how sensors detect the environment and how control logic enables a robot to make decisions on its own.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-1">
+      <span class="outcome-icon">🚀</span>
+      <div class="outcome-title">STEM Motivation</div>
+      <p class="outcome-desc">Walk away inspired — with a real understanding of where AI, robotics, and healthcare innovation are headed.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CTA -->
+<section id="register">
+  <div class="apply-inner reveal">
+    <div class="apply-title">READY TO<br>EXPLORE?</div>
+    <p class="apply-desc">Pragyan Explorers is open for school students in Grades 8–12. Secure your spot in Kerala's most hands-on introduction to neurorobotics.</p>
+    <div class="eligibility-row">
+      <span class="elig-pill">📚 Grades 8–12</span>
+      <span class="elig-pill">📍 Offline · In-Person</span>
+      <span class="elig-pill">🗓️ 3 Days Intensive</span>
+    </div>
+    <div class="apply-buttons">
+      <a href="apply.html" class="btn-primary">Apply for SANKALP 2026 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SANKALP 2026</div>
+  <p>© 2026 IEEE Robotics and Automation Society, Kerala Chapter. All rights reserved.</p>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

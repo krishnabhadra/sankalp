@@ -1,0 +1,99 @@
+PHASE III – GRADUATE RESEARCH BOOTCAMP
+The Graduate Research Bootcamp is the defining element of SANKALP's Main Track
+alignment. It is a 5-day intensive research-oriented program held at IIT Palakkad, designed
+exclusively for early-stage graduate students (M.Tech / M.S. / Ph.D. Year 1-2). It bridges the gap
+between coursework and active research, preparing participants to contribute to the global
+robotics research community.
+Parameter Details
+Duration 5 Days
+26
+Venue IIT Palakkad (To Confirm via Letter of Intent)
+Target
+Audience Early-stage graduate students (M.Tech / M.S. / Ph.D. Year 1–2)
+Mentors
+IIT Palakkad faculty, GSAC members, and IEEE RAS Kerala Chapter
+faculty
+Expected
+Output
+Research proposal presentation evaluated by a faculty panel; poster
+presentation at the NeuroFrontiers Conclave
+Day 1: Research Methodology in Robotics
+● Session 1: The Research Process in Robotics & Automation
+○ Identification of research problems in neurorobotics, haptics, and CPS.
+○ Literature review strategies: IEEE Xplore, Google Scholar, and citation mapping.
+○ Distinguishing between State-of-the-Art (SOTA) and research gaps.
+○ Formulating precise research questions and hypotheses.
+● Session 2: Writing for IEEE Publications
+○ Anatomy of an IEEE conference and journal paper.
+○ Writing abstracts, introductions, and related work sections.
+○ Identifying and avoiding common pitfalls in technical writing.
+○ Hands-on: Participants draft a 150-word abstract on an assigned topic.
+● Session 3: Experimental Design & Validation
+○ Designing reproducible robotics experiments.
+○ Key metrics: Accuracy, latency, reliability, and usability in neurorobotic systems.
+○ Dataset creation, annotation, and ethical data handling protocols.
+○ Statistical analysis techniques for robotics experimentation.
+Day 2: Advanced Neurorobotics Research Frontiers
+● Session 1: EEG/EMG Decoding — State of the Art
+○ Signal acquisition pipelines for research-grade EEG/EMG systems.
+○ Feature extraction methods: Time-domain, frequency-domain, and wavelet
+methods.
+○ Classification approaches: LDA, SVM, CNN, and LSTM for biosignal decoding.
+○ Open research challenges: Subject independence, noise robustness, and real-time
+constraints.
+● Session 2: Brain-Computer Interfaces (BCI) — Research Perspectives
+○ BCI paradigms: P300, SSVEP, and Motor Imagery.
+27
+○ Closed-loop BCI systems: Bridging the gap from signal to action.
+○ Neural plasticity and the development of adaptive BCI.
+○ The ethical landscape and considerations of neurotechnology research.
+● Session 3: Neuroprosthetics & Assistive Robotics Research
+○ Current research trends in dexterous prosthetic hands.
+○ Restoring sensory feedback in prosthetic systems.
+○ Exoskeleton control logic and rehabilitation robotics.
+○ Case Studies: Reviewing published research from IIT Madras, IIIT Hyderabad,
+and international labs.
+Day 3: AI & Machine Learning for Intelligent Robotic Systems
+● Session 1: Deep Learning for Biosignal Classification
+○ CNN architectures specifically designed for EEG/EMG data.
+○ Transfer learning techniques for subject-independent modeling.
+○ Data augmentation strategies tailored for biosignal datasets.
+● Session 2: Reinforcement Learning (RL) for Adaptive Robotics
+○ RL Fundamentals: Rewards, policies, and environment interaction.
+○ Applications in adaptive prosthetic control and rehabilitation robotics.
+○ Addressing Sim-to-Real transfer challenges.
+● Session 3: Hands-on Paper Reading Workshop
+○ Analysis of 3 recent IEEE RA-L / ICRA-affiliated papers on assigned topics.
+○ Structured Reading: Problem identification, methodology, results, and
+limitations.
+○ Group discussion facilitated by GSAC members to critique and connect to
+personal research interests.
+Day 4: Research Problem Formulation & Prototyping
+● Session 1: Identifying Your Research Problem
+○ Transitioning from general interest to a specific, tractable research question.
+○ Gap analysis: Identifying what can be achieved within a 6-month timeline.
+○ Scoping: Assessing feasibility, available resources, and realistic timelines.
+● Session 2: Prototyping for Research vs. Prototyping for Demo
+○ Principles of research prototype design.
+○ Instrumentation and data logging requirements for reproducibility.
+○ Best practices for version control, documentation, and open-source contributions.
+28
+● Session 3: Team Research Proposal Work Session
+○ Teams (2–3 graduate students) begin drafting a 2-page formal research proposal.
+○ Mentorship provided by GSAC members and faculty mentors.
+○ Structure: Motivation, related work, methodology, expected outcomes, and
+timeline.
+Day 5: Research Proposal Presentations & NeuroFrontiers Preparation
+● Session 1: Research Proposal Presentations
+○ Formal presentations: 10-minute presentation followed by 5-minute Q&A.
+○ Evaluation by a faculty panel (IIT Palakkad, IIIT Kottayam, and NIT Calicut).
+○ Criteria: Novelty, feasibility, methodology, potential impact, and clarity.
+● Session 2: Poster Preparation for NeuroFrontiers Conclave
+○ Selection of top proposals for poster presentation at NeuroFrontiers 2027.
+○ Guidance on academic poster design and effective presentation skills.
+● Session 3: Research Pathways & IEEE RAS Opportunities
+○ Overview of PhD opportunities in robotics (India and International).
+○ Guide to IEEE RAS conferences: ICRA, IROS, RO-MAN, and Humanoids.
+○ Publication pathways: IEEE RA-L, TRO, and TASE.
+○ Information on RAS funding, travel grants, and Technical Committee (TC)
+involvement.

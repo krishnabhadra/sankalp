@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase II — Human-Centered Neurorobotics | SANKALP 2026</title>
+<meta name="description" content="Phase II of SANKALP 2026: An 18-day undergraduate program in Human-Centered Neurorobotics & Intelligent Interaction Systems. Online foundations, expert talks, and hands-on workshops across 3 specialised tracks.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0a0a0a;
+  --white: #0f0f0f;
+  --white3: #555555;
+  --border: rgba(0,0,0,0.1);
+  --border2: rgba(0,0,0,0.2);
+  --bg: #ffffff;
+  --bg2: #f7f7f5;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #ffffff;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.018;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── HEADER ── */
+#header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.header-container {
+  width: 100%;
+  padding: 12px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left img { height: 40px; }
+.navbar { display: flex; align-items: center; gap: 20px; }
+.navbar a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.navbar a:hover { color: #000; }
+.nav-cta {
+  background: #111 !important;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: #333 !important; }
+
+/* ── SHARED ── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 7rem 5%;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: #aaa;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: #0f0f0f;
+  margin-bottom: 1.25rem;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 300;
+  max-width: 560px;
+  margin-bottom: 4rem;
+  line-height: 1.8;
+}
+
+.section-divider {
+  position: relative;
+  z-index: 1;
+  height: 1px;
+  background: var(--border);
+  margin: 0 5%;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: #0f0f0f;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover { background: #333; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border: 1px solid rgba(0,0,0,0.25);
+  color: #0f0f0f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s;
+  background: transparent;
+  cursor: pointer;
+}
+.btn-outline:hover { border-color: rgba(0,0,0,0.5); background: rgba(0,0,0,0.04); }
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 5% 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+.hero-accent-circle {
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-year-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-year-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: #aaa;
+}
+
+.hero-program-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  color: #0f0f0f;
+  margin-bottom: 0.5rem;
+}
+.hero-phase-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 1.5rem;
+  padding-left: 4px;
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.hero-desc-block { max-width: 520px; }
+.hero-desc-block p {
+  font-size: 1.05rem;
+  color: #555;
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.hero-stat-val {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: #0f0f0f;
+}
+.hero-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #888;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── WHO'S THIS FOR ── */
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.audience-copy p {
+  color: #555;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+  line-height: 1.85;
+  font-size: 1rem;
+}
+.branch-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+.branch-pill {
+  padding: 8px 18px;
+  background: #f9f9f8;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.2s;
+}
+.branch-pill:hover {
+  border-color: rgba(0,0,0,0.2);
+  color: #0f0f0f;
+  background: #f0f0ee;
+}
+
+.format-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.format-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  background: #f9f9f8;
+  transition: border-color 0.2s, background 0.2s;
+}
+.format-step:hover { border-color: rgba(0,0,0,0.15); background: #f4f4f2; }
+
+.format-icon {
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+.format-text h4 {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin-bottom: 3px;
+  letter-spacing: 0.02em;
+}
+.format-text p {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* ── OUTCOMES ── */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+.outcome-card {
+  background: #f9f9f8;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.outcome-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+.outcome-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+.outcome-title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.outcome-desc { font-size: 12.5px; color: var(--white3); line-height: 1.6; }
+
+/* ── PROGRAM JOURNEY (TIMELINE) ── */
+.journey-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.journey-grid::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 30px; bottom: 30px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.15) 5%, rgba(0,0,0,0.15) 95%, transparent);
+}
+
+.journey-item {
+  display: flex;
+  gap: 2rem;
+  padding: 1.25rem 0;
+  position: relative;
+}
+.journey-num {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  color: #0f0f0f;
+  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
+}
+.journey-content {
+  flex: 1;
+  background: #f9f9f8;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.journey-content:hover { border-color: rgba(0,0,0,0.15); transform: translateX(4px); }
+
+.journey-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+.journey-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f0f0f;
+}
+.journey-badge {
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.badge-online { background: rgba(0,120,200,0.08); color: #0066aa; border: 1px solid rgba(0,120,200,0.2); }
+.badge-offline { background: rgba(0,0,0,0.06); color: #0f0f0f; border: 1px solid rgba(0,0,0,0.15); }
+.badge-expert { background: rgba(100,60,180,0.08); color: #5533aa; border: 1px solid rgba(100,60,180,0.2); }
+
+.journey-desc {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+}
+.journey-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.journey-tag {
+  padding: 3px 10px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #777;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── WORKSHOP TRACKS ── */
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.track-card {
+  background: #f9f9f8;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.track-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s;
+}
+.track-card:hover { border-color: rgba(0,0,0,0.18); transform: translateY(-4px); }
+.track-card:hover::before { background: #0f0f0f; }
+
+.track-number {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: rgba(0,0,0,0.05);
+  line-height: 1;
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  letter-spacing: 0.05em;
+}
+.track-icon {
+  width: 48px; height: 48px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 1.25rem;
+}
+.track-title {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+.track-subtitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.track-desc {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+.track-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+}
+.track-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+.track-list li::before {
+  content: '→';
+  color: #0f0f0f;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.track-output {
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #333;
+  letter-spacing: 0.04em;
+}
+.track-output strong { font-weight: 600; }
+
+/* ── SPARSHA CONCLAVE ── */
+.conclave-inner {
+  background: #f9f9f8;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 20px;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+.conclave-left h3 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  letter-spacing: 0.04em;
+  color: #0f0f0f;
+  margin-bottom: 1.25rem;
+  line-height: 1;
+}
+.conclave-left p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+.conclave-stats-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.conclave-stat {
+  text-align: center;
+}
+.conclave-stat-val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: #0f0f0f;
+}
+.conclave-stat-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #888;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.conclave-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-right: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.schedule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  background: #ffffff;
+  transition: border-color 0.2s;
+}
+.schedule-item:hover { border-color: rgba(0,0,0,0.15); }
+.schedule-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.schedule-text h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin-bottom: 2px;
+}
+.schedule-text p {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* ── CTA ── */
+.apply-inner {
+  background: #fcfcfc;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.apply-inner::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 400px;
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.apply-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.04em;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  position: relative;
+  line-height: 1;
+}
+.apply-desc {
+  color: var(--white3);
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  position: relative;
+  line-height: 1.75;
+}
+.eligibility-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.elig-pill {
+  padding: 8px 18px;
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--white3);
+  font-weight: 500;
+}
+.apply-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 5%;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+footer p {
+  font-size: 12px;
+  color: var(--white3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero { padding: 100px 40px 60px; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+  .hero-stats { gap: 2rem; }
+  .conclave-inner, .audience-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  #header .header-container { padding: 10px 20px; }
+  .header-left img { height: 30px; }
+  .navbar a:not(.nav-cta) { display: none; }
+  .nav-cta { padding: 6px 12px; font-size: 12px; }
+
+  .hero { padding: 90px 20px 40px; justify-content: center; }
+  .hero-program-name { font-size: clamp(2.5rem, 9vw, 4.5rem); }
+  .hero-desc-block { max-width: 100%; }
+  .hero-desc-block p { font-size: 14px; }
+  .hero-stats { width: 100%; justify-content: space-between; gap: 1rem; }
+  .hero-stat-val { font-size: 2rem; }
+  .hero-stat-label { font-size: 9px; }
+
+  section { padding: 4rem 20px; }
+  .section-title { font-size: 2.2rem; }
+  .section-sub { font-size: 14px; }
+
+  .btn-primary, .btn-outline { padding: 10px 18px; font-size: 13px; }
+
+  .journey-grid::before { left: 26px; }
+  .journey-num { width: 52px; height: 52px; font-size: 18px; }
+
+  .tracks-grid { grid-template-columns: 1fr; }
+  .conclave-inner { padding: 2rem; }
+  .apply-inner { padding: 2.5rem 1.5rem; }
+  footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+@media (max-width: 480px) {
+  .hero-stat-val { font-size: 1.6rem; }
+  .nav-cta { padding: 5px 10px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-container">
+    <div class="header-left">
+      <a href="index.html"><img src="/assets/RAS main logo.png" alt="IEEE RAS Kerala Chapter"></a>
+    </div>
+    <nav class="navbar">
+      <a href="index.html#about">About</a>
+      <a href="index.html#program">Program</a>
+      <a href="index.html#tracks">Tracks</a>
+      <a href="index.html#bootcamp">Bootcamp</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════ -->
+<!--                  HERO                  -->
+<!-- ═══════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-accent-circle"></div>
+
+  <div class="hero-year-label">SANKALP 2026 · Phase II · Undergraduate Track</div>
+
+  <div class="hero-program-name">HUMAN-CENTERED<br>NEUROROBOTICS</div>
+  <div class="hero-phase-label">Intelligent Interaction Systems · Online + Offline</div>
+
+  <div class="hero-bottom">
+    <div class="hero-desc-block">
+      <p>A progressive 18-day program that takes undergraduate students from foundational concepts through expert-led talks to an intensive hands-on workshop — designing real human-interactive robotic systems across three specialized tracks.</p>
+      <div class="hero-actions">
+        <a href="apply.html" class="btn-primary">Apply Now →</a>
+        <a href="#journey" class="btn-outline">Explore Program</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">18</div>
+        <div class="hero-stat-label">Days Total</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">3</div>
+        <div class="hero-stat-label">Workshop Tracks</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">6</div>
+        <div class="hero-stat-label">Foundation Sessions</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">UG</div>
+        <div class="hero-stat-label">Level</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--            WHO'S THIS FOR              -->
+<!-- ═══════════════════════════════════════ -->
+<section id="audience">
+  <div class="section-label">Who's This For</div>
+  <h2 class="section-title">BUILT FOR<br>UNDERGRADS.</h2>
+  <p class="section-sub">Designed for engineering students ready to move beyond textbooks — into neurorobotics, bio-signal control, haptics, and cyber-physical systems.</p>
+
+  <div class="audience-grid">
+    <div class="audience-copy reveal">
+      <p>This program bridges the gap between foundational academics and real-world robotic systems. Whether you're in Computer Science, Electronics, Mechanical, Biomedical, or AI — if you're curious about how machines can understand and respond to humans, this track is yours.</p>
+      <p>The format is intentionally progressive: start with a shared online foundation, gain perspective from expert practitioners, and then specialize in hands-on workshops with dedicated mentors.</p>
+
+      <div class="branch-pills">
+        <span class="branch-pill">CSE</span>
+        <span class="branch-pill">ECE</span>
+        <span class="branch-pill">EEE</span>
+        <span class="branch-pill">ME</span>
+        <span class="branch-pill">Biomedical</span>
+        <span class="branch-pill">AI / DS</span>
+      </div>
+    </div>
+
+    <div class="format-flow reveal reveal-delay-1">
+      <div class="section-label" style="margin-bottom:1.25rem;">Program Format</div>
+      <div class="format-step">
+        <div class="format-icon">📡</div>
+        <div class="format-text">
+          <h4>Online Foundation Series</h4>
+          <p>6 days of structured conceptual sessions covering neurorobotics, CPS, haptics, AI, and BCI fundamentals.</p>
+        </div>
+      </div>
+      <div class="format-step">
+        <div class="format-icon">🎤</div>
+        <div class="format-text">
+          <h4>Expert Talk Series</h4>
+          <p>3 days of insights from researchers and industry practitioners on healthcare robotics, smart systems, and haptic VR/AR.</p>
+        </div>
+      </div>
+      <div class="format-step">
+        <div class="format-icon">🔧</div>
+        <div class="format-text">
+          <h4>Offline Workshop Series</h4>
+          <p>3 days of intensive, track-based hands-on implementation with mentors — culminating in a working prototype.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--          WHAT YOU'LL LEARN             -->
+<!-- ═══════════════════════════════════════ -->
+<section id="outcomes">
+  <div class="section-label">What You'll Learn</div>
+  <h2 class="section-title">SKILLS THAT<br>MATTER.</h2>
+  <p class="section-sub">Not just theory — you leave with hands-on build experience, real prototypes, and exposure to the technologies shaping Industry 5.0.</p>
+
+  <div class="outcomes-grid">
+    <div class="outcome-card reveal">
+      <span class="outcome-icon">🧠</span>
+      <div class="outcome-title">Neurorobotics Foundation</div>
+      <p class="outcome-desc">Understand how bio-signals, AI, and robotics converge to create intelligent, human-centered systems.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-1">
+      <span class="outcome-icon">📊</span>
+      <div class="outcome-title">Multi-Modal Signals</div>
+      <p class="outcome-desc">Differentiate and work with bio-signals (EMG, EEG), vision-based inputs, and audio-driven commands.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-2">
+      <span class="outcome-icon">🤖</span>
+      <div class="outcome-title">Working Prototypes</div>
+      <p class="outcome-desc">Build, test, and present functional prototypes — from EMG-controlled arms to haptic gloves to CPS nodes.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-3">
+      <span class="outcome-icon">🦿</span>
+      <div class="outcome-title">Assistive Robotics</div>
+      <p class="outcome-desc">Explore real-world applications in neuroprosthetics, rehabilitation, and assistive human-robot interaction.</p>
+    </div>
+    <div class="outcome-card reveal reveal-delay-1">
+      <span class="outcome-icon">⚙️</span>
+      <div class="outcome-title">System-Level Thinking</div>
+      <p class="outcome-desc">Design end-to-end systems: sensing → processing → actuation — with edge intelligence and cloud connectivity.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--           PROGRAM JOURNEY              -->
+<!-- ═══════════════════════════════════════ -->
+<section id="journey">
+  <div class="section-label">Program Journey</div>
+  <h2 class="section-title">3 PHASES.<br>18 DAYS.</h2>
+  <p class="section-sub">A progressive learning framework — from shared foundations through expert perspectives to specialized, hands-on prototype development.</p>
+
+  <div class="journey-grid">
+
+    <!-- MODULE 1 -->
+    <div class="journey-item reveal">
+      <div class="journey-num">01</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Online Foundation Series</span>
+          <span class="journey-badge badge-online">Online · 6 Days</span>
+        </div>
+        <p class="journey-desc">Build interdisciplinary foundations in neurorobotics, bio-signal processing, haptics, CPS, AI, and BCI through structured conceptual sessions.</p>
+        <div class="journey-tags">
+          <span class="journey-tag">Neurorobotics Intro</span>
+          <span class="journey-tag">CPS Fundamentals</span>
+          <span class="journey-tag">Signals &amp; Perception</span>
+          <span class="journey-tag">Haptics &amp; Feedback</span>
+          <span class="journey-tag">AI for Robotics</span>
+          <span class="journey-tag">BCI &amp; EEG/EMG</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="journey-item reveal reveal-delay-1">
+      <div class="journey-num">02</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Expert Talk Series</span>
+          <span class="journey-badge badge-expert">Online · 3 Days</span>
+        </div>
+        <p class="journey-desc">Gain real-world insights from researchers and industry practitioners across three focused themes.</p>
+        <div class="journey-tags">
+          <span class="journey-tag">Healthcare Robotics</span>
+          <span class="journey-tag">Smart Systems &amp; CPS</span>
+          <span class="journey-tag">Haptics in VR/AR</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 3 -->
+    <div class="journey-item reveal reveal-delay-2">
+      <div class="journey-num">03</div>
+      <div class="journey-content">
+        <div class="journey-meta">
+          <span class="journey-title">Hands-On Workshop Series</span>
+          <span class="journey-badge badge-offline">Offline · 3 Days</span>
+        </div>
+        <p class="journey-desc">Intensive track-based implementation with dedicated mentors. Three parallel tracks, each building a functional prototype from scratch.</p>
+        <div class="journey-tags">
+          <span class="journey-tag">EMG Assistive Robot</span>
+          <span class="journey-tag">Haptic Teleoperation</span>
+          <span class="journey-tag">Adaptive CPS Node</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--           WORKSHOP TRACKS              -->
+<!-- ═══════════════════════════════════════ -->
+<section id="tracks">
+  <div class="section-label">Workshop Tracks</div>
+  <h2 class="section-title">CHOOSE YOUR<br>SPECIALIZATION.</h2>
+  <p class="section-sub">Three parallel, mentor-guided tracks — each producing a real, working prototype across 3 intensive offline days.</p>
+
+  <div class="tracks-grid">
+
+    <!-- TRACK 1 -->
+    <div class="track-card reveal">
+      <div class="track-number">01</div>
+      <div class="track-icon">🧠</div>
+      <div class="track-title">Neurorobotics &amp; Multimodal Bio-Signal Control</div>
+      <div class="track-subtitle">EMG · Vision · Arduino · Assistive Tech</div>
+      <p class="track-desc">Build an EMG-driven assistive robotic system with vision-assisted interaction — simulating real-world prosthetics and rehabilitation devices.</p>
+      <ul class="track-list">
+        <li><strong>Day 1:</strong> EMG signal acquisition, sensor interfacing, and real-time signal visualization</li>
+        <li><strong>Day 2:</strong> Noise filtering, adaptive control logic, and vision–EMG multimodal fusion</li>
+        <li><strong>Day 3:</strong> End-to-end system testing, performance validation, and deployment demo</li>
+      </ul>
+      <div class="track-output"><strong>Output →</strong> EMG-controlled robotic actuator with vision-based supervisory control</div>
+    </div>
+
+    <!-- TRACK 2 -->
+    <div class="track-card reveal reveal-delay-1">
+      <div class="track-number">02</div>
+      <div class="track-icon">🤚</div>
+      <div class="track-title">Haptics &amp; Tactile Human–Robot Interaction</div>
+      <div class="track-subtitle">Force Sensing · Haptic Feedback · Teleoperation</div>
+      <p class="track-desc">Design a haptic-feedback teleoperation system — translating robotic contact into human sensation for intuitive "blind" control via touch.</p>
+      <ul class="track-list">
+        <li><strong>Day 1:</strong> FSR interfacing, pressure calibration, and real-time tactile data visualization</li>
+        <li><strong>Day 2:</strong> Haptic rendering with LRA actuators, haptic icons, and latency minimization</li>
+        <li><strong>Day 3:</strong> Closed-loop testing, sensory substitution validation, and live demo</li>
+      </ul>
+      <div class="track-output"><strong>Output →</strong> Haptic teleoperation system with wearable tactile feedback</div>
+    </div>
+
+    <!-- TRACK 3 -->
+    <div class="track-card reveal reveal-delay-2">
+      <div class="track-number">03</div>
+      <div class="track-icon">⚙️</div>
+      <div class="track-title">Adaptive Cyber-Physical Systems</div>
+      <div class="track-subtitle">IoT · Cloud · Edge AI · Industrial Safety</div>
+      <p class="track-desc">Build an intelligent safety and monitoring CPS node — sensing, processing at the edge, communicating with the cloud, and responding to safety-critical scenarios.</p>
+      <ul class="track-list">
+        <li><strong>Day 1:</strong> Sensor integration, real-time acquisition, and edge-level control logic</li>
+        <li><strong>Day 2:</strong> Cloud dashboard, MQTT connectivity, and bi-directional remote control</li>
+        <li><strong>Day 3:</strong> Adaptive behavior, fault tolerance, and full end-to-end deployment</li>
+      </ul>
+      <div class="track-output"><strong>Output →</strong> Cloud-connected CPS node with adaptive control &amp; real-time monitoring</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════ -->
+<!--                  CTA                   -->
+<!-- ═══════════════════════════════════════ -->
+<section id="register">
+  <div class="apply-inner reveal">
+    <div class="apply-title">READY TO<br>BUILD?</div>
+    <p class="apply-desc">Join the undergraduate track of SANKALP 2026 — 18 days from foundations to working prototypes, mentored by experts in neurorobotics, haptics, and CPS.</p>
+    <div class="eligibility-row">
+      <span class="elig-pill">🎓 Undergraduate Students</span>
+      <span class="elig-pill">📡 Online + Offline</span>
+      <span class="elig-pill">🗓️ 18 Days Program</span>
+      <span class="elig-pill">🔧 3 Hands-On Tracks</span>
+    </div>
+    <div class="apply-buttons">
+      <a href="apply.html" class="btn-primary">Apply for SANKALP 2026 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SANKALP 2026</div>
+  <p>© 2026 IEEE Robotics and Automation Society, Kerala Chapter. All rights reserved.</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

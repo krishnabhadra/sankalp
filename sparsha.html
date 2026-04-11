@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPARSHA 2027 — Frontiers in Neurorobotics, Haptics & Intelligent Systems | SANKALP</title>
+<meta name="description" content="SPARSHA 2027: A flagship hybrid research conclave by IEEE RAS Kerala Chapter. Keynotes, panel discussions, poster presentations, startup showcase, and industry interface — at IIT Palakkad / IIIT Kottayam.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #0f0f0f;
+  --white3: #555555;
+  --border: rgba(0,0,0,0.1);
+  --border2: rgba(0,0,0,0.2);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #ffffff;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.018;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── HEADER ── */
+#header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.header-container {
+  width: 100%; padding: 12px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left img { height: 40px; }
+.navbar { display: flex; align-items: center; gap: 20px; }
+.navbar a { text-decoration: none; color: #555; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+.navbar a:hover { color: #000; }
+.nav-cta { background: #111 !important; color: #fff !important; padding: 8px 16px; border-radius: 6px; font-weight: 600 !important; }
+.nav-cta:hover { background: #333 !important; }
+
+/* ── SHARED ── */
+section { position: relative; z-index: 1; padding: 7rem 5%; }
+
+.section-label {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: #888;
+  margin-bottom: 1.25rem; display: flex; align-items: center; gap: 12px;
+}
+.section-label::before { content: ''; width: 24px; height: 1px; background: #aaa; flex-shrink: 0; }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 400; line-height: 0.95;
+  letter-spacing: 0.04em; color: #0f0f0f; margin-bottom: 1.25rem;
+}
+
+.section-sub {
+  font-size: 1rem; color: #666; font-weight: 300;
+  max-width: 560px; margin-bottom: 4rem; line-height: 1.8;
+}
+
+.section-divider { position: relative; z-index: 1; height: 1px; background: var(--border); margin: 0 5%; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; background: #0f0f0f; color: #fff;
+  text-decoration: none; font-family: var(--font-body);
+  font-size: 14px; font-weight: 700; border-radius: 6px;
+  transition: all 0.2s; border: none; cursor: pointer; letter-spacing: 0.02em;
+}
+.btn-primary:hover { background: #333; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border: 1px solid rgba(0,0,0,0.25);
+  color: #0f0f0f; text-decoration: none; font-size: 14px;
+  font-weight: 500; border-radius: 6px; transition: all 0.2s;
+  background: transparent; cursor: pointer;
+}
+.btn-outline:hover { border-color: rgba(0,0,0,0.5); background: rgba(0,0,0,0.04); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 0 5% 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 64px 64px; pointer-events: none;
+}
+.hero-accent-circle {
+  position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none;
+}
+.hero-year-label {
+  font-family: var(--font-mono); font-size: 12px; color: #555;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px;
+}
+.hero-year-label::before { content: ''; width: 32px; height: 1px; background: #aaa; }
+
+.hero-program-name {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  letter-spacing: 0.04em; line-height: 0.92;
+  color: #0f0f0f; margin-bottom: 0.5rem;
+}
+.hero-phase-label {
+  font-family: var(--font-mono); font-size: 13px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #888; margin-bottom: 1.5rem; padding-left: 4px;
+}
+
+.hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
+.hero-desc-block { max-width: 520px; }
+.hero-desc-block p { font-size: 1.05rem; color: #555; font-weight: 300; line-height: 1.75; margin-bottom: 2rem; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.hero-stat-val { font-family: var(--font-display); font-size: 3.5rem; line-height: 1; color: #0f0f0f; }
+.hero-stat-label { font-family: var(--font-mono); font-size: 10px; color: #888; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
+/* ── ABOUT (WHAT IS SPARSHA) ── */
+.about-grid {
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem; align-items: start;
+}
+.about-copy p { color: #555; margin-bottom: 1.25rem; font-weight: 300; line-height: 1.85; font-size: 1rem; }
+
+.highlight-box {
+  background: #f4f4f2; border: 1px solid rgba(0,0,0,0.1);
+  border-left: 3px solid #0f0f0f; border-radius: 8px;
+  padding: 1.25rem 1.5rem; margin-top: 2rem;
+  font-size: 0.95rem; color: #333; font-style: italic; font-weight: 300;
+}
+
+.info-cards { display: flex; flex-direction: column; gap: 10px; }
+.info-card {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px; background: #f9f9f8;
+  transition: border-color 0.2s, background 0.2s;
+}
+.info-card:hover { border-color: rgba(0,0,0,0.15); background: #f4f4f2; }
+.info-icon {
+  width: 38px; height: 38px; border-radius: 8px;
+  background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+}
+.info-text h4 { font-size: 13px; font-weight: 700; color: #0f0f0f; margin-bottom: 3px; letter-spacing: 0.02em; }
+.info-text p { font-size: 12px; color: #777; line-height: 1.5; }
+
+/* ── SCHEDULE TIMELINE ── */
+.schedule-grid { display: flex; flex-direction: column; gap: 0; position: relative; }
+.schedule-grid::before {
+  content: ''; position: absolute; left: 30px; top: 30px; bottom: 30px; width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.15) 5%, rgba(0,0,0,0.15) 95%, transparent);
+}
+
+.schedule-item-row { display: flex; gap: 2rem; padding: 1rem 0; position: relative; }
+.schedule-time-circle {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #fff; border: 1px solid rgba(0,0,0,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.05em; color: #0f0f0f; text-align: center;
+  flex-shrink: 0; z-index: 2; position: relative; line-height: 1.2;
+}
+.schedule-content {
+  flex: 1; background: #f9f9f8; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px; padding: 1.25rem 1.5rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.schedule-content:hover { border-color: rgba(0,0,0,0.15); transform: translateX(4px); }
+.schedule-content-title { font-size: 1rem; font-weight: 700; color: #0f0f0f; margin-bottom: 0.35rem; }
+.schedule-content-desc { font-size: 13px; color: #666; line-height: 1.6; }
+.schedule-badge {
+  display: inline-block; padding: 2px 10px; border-radius: 4px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: rgba(100,60,180,0.08); color: #5533aa;
+  border: 1px solid rgba(100,60,180,0.2); margin-left: 8px; vertical-align: middle;
+}
+
+/* ── HIGHLIGHTS GRID ── */
+.highlights-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.highlight-card {
+  background: #f9f9f8; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px; padding: 2rem; position: relative;
+  overflow: hidden; transition: border-color 0.3s, transform 0.3s;
+}
+.highlight-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: transparent; transition: background 0.3s;
+}
+.highlight-card:hover { border-color: rgba(0,0,0,0.18); transform: translateY(-4px); }
+.highlight-card:hover::before { background: #0f0f0f; }
+.highlight-icon {
+  width: 56px; height: 56px; background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1); border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 1.25rem;
+}
+.highlight-title { font-size: 1.1rem; font-weight: 700; color: #0f0f0f; margin-bottom: 0.5rem; }
+.highlight-sub {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #888; margin-bottom: 0.85rem;
+}
+.highlight-desc { font-size: 13.5px; color: #666; line-height: 1.65; }
+
+/* ── IMPACT ── */
+.impact-inner {
+  background: #f9f9f8; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 20px; padding: 3rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3.5rem; align-items: start;
+}
+.impact-left h3 {
+  font-family: var(--font-display); font-size: 2.5rem;
+  letter-spacing: 0.04em; color: #0f0f0f;
+  margin-bottom: 1.25rem; line-height: 1;
+}
+.impact-left p { font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 1.25rem; font-weight: 300; }
+
+.impact-pillars { display: flex; flex-direction: column; gap: 10px; }
+.impact-pillar {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px; background: #fff; transition: border-color 0.2s;
+}
+.impact-pillar:hover { border-color: rgba(0,0,0,0.15); }
+.impact-pillar-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0;
+}
+.impact-pillar-text h4 { font-size: 13px; font-weight: 700; color: #0f0f0f; margin-bottom: 2px; }
+.impact-pillar-text p { font-size: 12px; color: #777; line-height: 1.5; }
+
+/* ── CTA ── */
+.apply-inner {
+  background: #fcfcfc; border: 1px solid var(--border);
+  border-radius: 20px; padding: 4rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.apply-inner::before {
+  content: ''; position: absolute; top: -100px; left: 50%;
+  transform: translateX(-50%); width: 500px; height: 400px;
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none;
+}
+.apply-title {
+  font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.04em; color: var(--white);
+  margin-bottom: 1.25rem; position: relative; line-height: 1;
+}
+.apply-desc {
+  color: var(--white3); font-size: 1rem; font-weight: 300;
+  max-width: 520px; margin: 0 auto 2rem; position: relative; line-height: 1.75;
+}
+.eligibility-row {
+  display: flex; justify-content: center; gap: 10px;
+  flex-wrap: wrap; margin-bottom: 2.5rem; position: relative;
+}
+.elig-pill {
+  padding: 8px 18px; border: 1px solid var(--border2);
+  border-radius: 6px; font-size: 13px; color: var(--white3); font-weight: 500;
+}
+.apply-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ── FOOTER ── */
+footer {
+  position: relative; z-index: 1; padding: 2rem 5%;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.06em; color: var(--white); }
+footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono); letter-spacing: 0.04em; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero { padding: 100px 40px 60px; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+  .hero-stats { gap: 2rem; }
+  .impact-inner, .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 768px) {
+  #header .header-container { padding: 10px 20px; }
+  .header-left img { height: 30px; }
+  .navbar a:not(.nav-cta) { display: none; }
+  .nav-cta { padding: 6px 12px; font-size: 12px; }
+  .hero { padding: 90px 20px 40px; justify-content: center; }
+  .hero-program-name { font-size: clamp(3rem, 10vw, 5rem); }
+  .hero-desc-block { max-width: 100%; }
+  .hero-desc-block p { font-size: 14px; }
+  .hero-stats { width: 100%; justify-content: space-between; gap: 1rem; }
+  .hero-stat-val { font-size: 2rem; }
+  .hero-stat-label { font-size: 9px; }
+  section { padding: 4rem 20px; }
+  .section-title { font-size: 2.2rem; }
+  .section-sub { font-size: 14px; }
+  .btn-primary, .btn-outline { padding: 10px 18px; font-size: 13px; }
+  .schedule-grid::before { left: 26px; }
+  .schedule-time-circle { width: 52px; height: 52px; font-size: 9px; }
+  .highlights-grid { grid-template-columns: 1fr; }
+  .impact-inner { padding: 2rem; }
+  .apply-inner { padding: 2.5rem 1.5rem; }
+  footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+@media (max-width: 480px) {
+  .hero-stat-val { font-size: 1.6rem; }
+  .nav-cta { padding: 5px 10px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-container">
+    <div class="header-left">
+      <a href="index.html"><img src="/assets/RAS main logo.png" alt="IEEE RAS Kerala Chapter"></a>
+    </div>
+    <nav class="navbar">
+      <a href="index.html#about">About</a>
+      <a href="index.html#program">Program</a>
+      <a href="index.html#tracks">Tracks</a>
+      <a href="index.html#bootcamp">Bootcamp</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════ -->
+<!--                  HERO                  -->
+<!-- ═══════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-accent-circle"></div>
+
+  <div class="hero-year-label">SANKALP 2026 · Flagship Research Conclave</div>
+
+  <div class="hero-program-name">SPARSHA<br>2027</div>
+  <div class="hero-phase-label">Frontiers in Neurorobotics, Haptics &amp; Intelligent Systems</div>
+
+  <div class="hero-bottom">
+    <div class="hero-desc-block">
+      <p>A high-visibility hybrid research conclave at the core of SANKALP — connecting participants with global research frontiers, industry innovation, and IEEE RAS leadership. One full day of keynotes, panels, poster presentations, and startup showcases.</p>
+      <div class="hero-actions">
+        <a href="apply.html" class="btn-primary">Register Now →</a>
+        <a href="#schedule" class="btn-outline">View Schedule</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">300+</div>
+        <div class="hero-stat-label">In-Person</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">500+</div>
+        <div class="hero-stat-label">Online Viewers</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">1</div>
+        <div class="hero-stat-label">Full Day</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">🌐</div>
+        <div class="hero-stat-label">Hybrid Format</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--           WHAT IS SPARSHA              -->
+<!-- ═══════════════════════════════════════ -->
+<section id="about">
+  <div class="section-label">About the Conclave</div>
+  <h2 class="section-title">RESEARCH.<br>INNOVATE.<br>CONNECT.</h2>
+  <p class="section-sub">A signature research platform bringing together researchers, industry leaders, and participants for knowledge exchange and collaborative innovation.</p>
+
+  <div class="about-grid">
+    <div class="about-copy reveal">
+      <p>SPARSHA 2027 is the flagship one-day hybrid research conclave at the core of SANKALP. It is designed as a high-visibility platform to connect participants with global research frontiers, industry innovation, and IEEE RAS leadership — while positioning the Kerala robotics ecosystem at a national and international level.</p>
+      <p>The conclave brings together researchers, industry leaders, and graduate participants to facilitate knowledge exchange, research dissemination, and collaborative innovation in neurorobotics, haptics, and intelligent systems.</p>
+      <p>It also serves as a public-facing component of the program, demonstrating the regional impact and outreach of the IEEE Robotics and Automation Society.</p>
+
+      <div class="highlight-box">
+        "A high-visibility, public-facing research platform demonstrating IEEE RAS regional impact — connecting researchers, industry, and the next generation of robotics innovators."
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div class="section-label" style="margin-bottom:1.25rem;">Event Details</div>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div class="info-text">
+            <h4>Venue</h4>
+            <p>IIT Palakkad / IIIT Kottayam — premier academic facilities for a world-class research event.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🌐</div>
+          <div class="info-text">
+            <h4>Hybrid Format</h4>
+            <p>In-person attendance with global livestream — expanding reach across states and countries.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🕘</div>
+          <div class="info-text">
+            <h4>Full Day · 9 AM – 6 PM</h4>
+            <p>A packed day of keynotes, panels, posters, demos, and networking — from inauguration to closing ceremony.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">👥</div>
+          <div class="info-text">
+            <h4>Audience</h4>
+            <p>Researchers, industry professionals, graduate participants, IEEE RAS members, and the wider robotics community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--            DAY SCHEDULE                -->
+<!-- ═══════════════════════════════════════ -->
+<section id="schedule">
+  <div class="section-label">Day Schedule</div>
+  <h2 class="section-title">ONE DAY.<br>SIX SESSIONS.</h2>
+  <p class="section-sub">A carefully curated programme — from industry keynotes and research panels to poster presentations and startup showcases.</p>
+
+  <div class="schedule-grid">
+    <div class="schedule-item-row reveal">
+      <div class="schedule-time-circle">9:00<br>AM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Inaugural Ceremony <span class="schedule-badge">Opening</span></div>
+        <p class="schedule-content-desc">Welcome by IEEE RAS Kerala Chapter Chair. Message from IEEE RAS President / Region 10 representative. Setting the stage for a day of research, innovation, and collaboration.</p>
+      </div>
+    </div>
+
+    <div class="schedule-item-row reveal reveal-delay-1">
+      <div class="schedule-time-circle">9:30<br>AM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Keynote 1 — Research Frontiers <span class="schedule-badge">Keynote</span></div>
+        <p class="schedule-content-desc">Eminent researcher from IIT / NIT / International RAS member on advanced neurorobotics research — current breakthroughs and open challenges in the field.</p>
+      </div>
+    </div>
+
+    <div class="schedule-item-row reveal reveal-delay-2">
+      <div class="schedule-time-circle">10:30<br>AM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Keynote 2 — Industry Innovation <span class="schedule-badge">Keynote</span></div>
+        <p class="schedule-content-desc">Industry leader from Genrobotics / Astrek Innovations on the commercialization of assistive robotics — from lab prototypes to deployed products.</p>
+      </div>
+    </div>
+
+    <div class="schedule-item-row reveal reveal-delay-1">
+      <div class="schedule-time-circle">11:30<br>AM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Panel Discussion <span class="schedule-badge">Panel</span></div>
+        <p class="schedule-content-desc">"Can India Lead the Next Decade of Human–Robot Interaction?" — Faculty, industry experts, and GSAC representatives debate the future of Indian robotics.</p>
+      </div>
+    </div>
+
+    <div class="schedule-item-row reveal reveal-delay-2">
+      <div class="schedule-time-circle">1:00<br>PM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Networking Lunch</div>
+        <p class="schedule-content-desc">Structured interaction between graduate participants, researchers, and industry representatives — building connections that last beyond the event.</p>
+      </div>
+    </div>
+
+    <div class="schedule-item-row reveal reveal-delay-1">
+      <div class="schedule-time-circle">2:00<br>PM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Research Poster Presentations <span class="schedule-badge">Research</span></div>
+        <p class="schedule-content-desc">SANKALP participants present research proposals evaluated by a faculty panel from premier institutions. Two hours of structured presentation and critique.</p>
+      </div>
+    </div>
+
+    <div class="schedule-item-row reveal reveal-delay-2">
+      <div class="schedule-time-circle">2:00<br>PM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Startup &amp; Innovation Showcase <span class="schedule-badge">Industry</span></div>
+        <p class="schedule-content-desc">Live demonstrations by Eye ROV, Rosh AI, Netrasemi, Inker Robotics, Astrek Innovations — real products built on the technologies participants are learning.</p>
+      </div>
+    </div>
+
+    <div class="schedule-item-row reveal reveal-delay-1">
+      <div class="schedule-time-circle">4:00<br>PM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Research–Industry Interface <span class="schedule-badge">Collaboration</span></div>
+        <p class="schedule-content-desc">Companies present real-world problems; participants propose initial research approaches. A collaborative session generating problem statements for continued work.</p>
+      </div>
+    </div>
+
+    <div class="schedule-item-row reveal reveal-delay-2">
+      <div class="schedule-time-circle">5:00<br>PM</div>
+      <div class="schedule-content">
+        <div class="schedule-content-title">Awards &amp; Closing Ceremony <span class="schedule-badge">Closing</span></div>
+        <p class="schedule-content-desc">Best poster awards, IEEE RAS membership drive, and the launch of the SANKALP Alumni Network — closing a day of research, innovation, and community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--             HIGHLIGHTS                 -->
+<!-- ═══════════════════════════════════════ -->
+<section id="highlights">
+  <div class="section-label">Conclave Highlights</div>
+  <h2 class="section-title">WHAT MAKES<br>SPARSHA UNIQUE.</h2>
+  <p class="section-sub">More than a conference — a platform where research meets industry, ideas meet mentors, and participants meet the global robotics community.</p>
+
+  <div class="highlights-grid">
+    <div class="highlight-card reveal">
+      <div class="highlight-icon">🎤</div>
+      <div class="highlight-title">Global-Caliber Keynotes</div>
+      <div class="highlight-sub">Research + Industry</div>
+      <p class="highlight-desc">Talks from eminent researchers at IITs and international labs alongside industry leaders from Genrobotics and Astrek Innovations — bridging research and real-world impact.</p>
+    </div>
+
+    <div class="highlight-card reveal reveal-delay-1">
+      <div class="highlight-icon">📊</div>
+      <div class="highlight-title">Graduate Research Posters</div>
+      <div class="highlight-sub">Faculty-Evaluated</div>
+      <p class="highlight-desc">SANKALP participants present their research proposals — evaluated by a faculty panel from IIT Palakkad, IIIT Kottayam, and NIT Calicut. Real academic rigor.</p>
+    </div>
+
+    <div class="highlight-card reveal reveal-delay-2">
+      <div class="highlight-icon">🚀</div>
+      <div class="highlight-title">Startup Showcase</div>
+      <div class="highlight-sub">Live Demos</div>
+      <p class="highlight-desc">See working products from Eye ROV, Rosh AI, Netrasemi, Inker Robotics, and Astrek Innovations — companies built on the very technologies taught in SANKALP.</p>
+    </div>
+
+    <div class="highlight-card reveal reveal-delay-1">
+      <div class="highlight-icon">🤝</div>
+      <div class="highlight-title">Research–Industry Interface</div>
+      <div class="highlight-sub">Collaborative Problem-Solving</div>
+      <p class="highlight-desc">Companies bring real-world problems; participants propose research approaches. This session generates problem statements for continued research beyond the program.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--         SIGNIFICANCE & IMPACT          -->
+<!-- ═══════════════════════════════════════ -->
+<section id="impact">
+  <div class="section-label">Significance &amp; Impact</div>
+  <h2 class="section-title">WHY IT<br>MATTERS.</h2>
+  <p class="section-sub">SPARSHA significantly strengthens the SANKALP ecosystem — creating measurable outcomes and lasting connections.</p>
+
+  <div class="impact-inner reveal">
+    <div class="impact-left">
+      <h3>VISIBILITY.<br>REACH.<br>IMPACT.</h3>
+      <p>SPARSHA is the public-facing, high-impact component of SANKALP — demonstrating what IEEE RAS Kerala Chapter and its participants are building. It delivers measurable and reportable outcomes across research, industry, and community dimensions.</p>
+      <p>Through global livestreaming, the conclave extends its reach beyond Kerala — strengthening inter-state and international collaboration networks and positioning the regional robotics ecosystem on a national stage.</p>
+    </div>
+
+    <div class="impact-pillars">
+      <div class="impact-pillar">
+        <div class="impact-pillar-icon">🔬</div>
+        <div class="impact-pillar-text">
+          <h4>Research Platform</h4>
+          <p>A high-visibility, public-facing research showcase demonstrating IEEE RAS regional impact and innovation.</p>
+        </div>
+      </div>
+      <div class="impact-pillar">
+        <div class="impact-pillar-icon">🌐</div>
+        <div class="impact-pillar-text">
+          <h4>Global Reach</h4>
+          <p>Livestreamed internationally — strengthening inter-state and international collaboration networks.</p>
+        </div>
+      </div>
+      <div class="impact-pillar">
+        <div class="impact-pillar-icon">🏭</div>
+        <div class="impact-pillar-text">
+          <h4>Industry Interface</h4>
+          <p>Generates real-world problem statements for continued research — connecting academia with industry needs.</p>
+        </div>
+      </div>
+      <div class="impact-pillar">
+        <div class="impact-pillar-icon">📈</div>
+        <div class="impact-pillar-text">
+          <h4>Measurable Outcomes</h4>
+          <p>Research presentations, industry engagement, community expansion, and alumni network launch — all reportable.</p>
+        </div>
+      </div>
+      <div class="impact-pillar">
+        <div class="impact-pillar-icon">👥</div>
+        <div class="impact-pillar-text">
+          <h4>Community Building</h4>
+          <p>Launch of the SANKALP Alumni Network, IEEE RAS membership drive, and structured networking sessions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!--                  CTA                   -->
+<!-- ═══════════════════════════════════════ -->
+<section id="register">
+  <div class="apply-inner reveal">
+    <div class="apply-title">BE PART OF<br>SPARSHA 2027</div>
+    <p class="apply-desc">Join Kerala's premier hybrid research conclave in neurorobotics, haptics, and intelligent systems — as a presenter, attendee, or online viewer.</p>
+    <div class="eligibility-row">
+      <span class="elig-pill">🎓 Researchers &amp; Students</span>
+      <span class="elig-pill">🏭 Industry Professionals</span>
+      <span class="elig-pill">🌐 Hybrid · In-Person + Online</span>
+      <span class="elig-pill">📍 IIT Palakkad / IIIT Kottayam</span>
+    </div>
+    <div class="apply-buttons">
+      <a href="apply.html" class="btn-primary">Register for SPARSHA 2027 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SANKALP 2026</div>
+  <p>© 2026 IEEE Robotics and Automation Society, Kerala Chapter. All rights reserved.</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
