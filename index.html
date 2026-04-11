@@ -6,6 +6,52 @@
 <title>SANKALP 2026 – IEEE RAS Kerala Chapter</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="sankalp.css">
+<style>
+  .accent-image-section {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 5%;
+    overflow: hidden;
+  }
+  .accent-image-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+  }
+  .accent-image-wrap img {
+    display: block;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(1.02);
+    transition: transform 0.6s ease, filter 0.4s ease;
+  }
+  .accent-image-wrap:hover img {
+    transform: scale(1.03);
+    filter: grayscale(0%) contrast(1.05);
+  }
+  .accent-image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 768px) {
+    .accent-image-section { padding: 2rem 20px; }
+    .accent-image-wrap img { height: 200px; }
+    .accent-image-wrap { border-radius: 14px; }
+    .accent-image-caption { padding: 1rem 1.25rem; font-size: 9px; }
+  }
+</style>
 </head>
 <body>
 
@@ -148,9 +194,15 @@
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- ACCENT IMAGE -->
+<div class="accent-image-section reveal">
+  <div class="accent-image-wrap">
+    <img src="/assets/neurorobotics-hero.png" alt="Neural-interfaced robotic prosthetic arm" loading="lazy">
+    <div class="accent-image-caption">Neurorobotics · Neural Interfaces · Human-Machine Interaction</div>
+  </div>
+</div>
 
-<!-- PROGRAM STRUCTURE -->
+<div class="section-divider"></div>
 <section id="program">
   <div class="section-label">Program Structure</div>
   <h2 class="section-title">4 PHASES.<br>32 DAYS.<br>ONE VISION.</h2>
@@ -165,7 +217,7 @@
         <span class="phase-badge badge-outreach">School · 3 Days</span>
       </div>
       <div class="program-card-icon">🧠</div>
-      <h3 class="program-card-title">Pragyan Explorers</h3>
+      <h3 class="program-card-title">Pragyan</h3>
       <p class="program-card-desc">A 3-day foundational program introducing school students (Grades 8–12) to neurorobotics — from circuits to hospital visits.</p>
       <div class="program-card-stats">
         <span>3 Days</span>
@@ -200,11 +252,11 @@
       </div>
       <div class="program-card-icon">📄</div>
       <h3 class="program-card-title">Graduate Research Bootcamp</h3>
-      <p class="program-card-desc">A 5-day intensive at IIT Palakkad — from research methodology to faculty-evaluated proposals and IEEE publication pathways.</p>
+      <p class="program-card-desc">A 5-day intensive — from research methodology to faculty-evaluated proposals and IEEE publication pathways.</p>
       <div class="program-card-stats">
         <span>5 Days</span>
         <span>M.Tech / M.S. / Ph.D.</span>
-        <span>IIT Palakkad</span>
+        <span>Offline</span>
       </div>
       <span class="program-card-link">Learn More →</span>
     </a>
@@ -247,7 +299,7 @@
           <p class="event-card-subtitle">Frontiers in Neurorobotics, Haptics &amp; Intelligent Systems</p>
           <p class="event-card-desc">A full-day hybrid research conclave — keynotes, panel discussions, poster presentations, and startup showcases. 300+ in-person, 500+ online.</p>
           <div class="event-card-meta">
-            <span>📍 IIT Palakkad / IIIT Kottayam</span>
+            <span>📍 Venue TBA</span>
             <span>🌐 Hybrid</span>
             <span>🗓️ Full Day</span>
           </div>
@@ -337,9 +389,15 @@
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- ACCENT IMAGE -->
+<div class="accent-image-section reveal">
+  <div class="accent-image-wrap">
+    <img src="/assets/research-workspace.png" alt="Research workspace with robotics components and neural signal analysis" loading="lazy">
+    <div class="accent-image-caption">Research · Prototype · Publish — The SANKALP Journey</div>
+  </div>
+</div>
 
-<!-- BOOTCAMP -->
+<div class="section-divider"></div>
 <section id="bootcamp">
   <div class="section-label">Graduate Bootcamp</div>
   <h2 class="section-title">THE ELITE<br>RESEARCH EXPERIENCE</h2>

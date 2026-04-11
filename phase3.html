@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phase III — Graduate Research Bootcamp | SANKALP 2026</title>
-<meta name="description" content="A 5-day intensive research bootcamp at IIT Palakkad for early-stage graduate students in neurorobotics, AI, and intelligent systems. Part of SANKALP 2026 by IEEE RAS Kerala Chapter.">
+<meta name="description" content="A 5-day intensive research bootcamp for early-stage graduate students in neurorobotics, AI, and intelligent systems. Part of SANKALP 2026 by IEEE RAS Kerala Chapter.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -397,6 +397,52 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
   .hero-stat-val { font-size: 1.6rem; }
   .nav-cta { padding: 5px 10px; font-size: 11px; }
 }
+
+/* ── ACCENT IMAGE ── */
+.accent-image-section {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 5%;
+  overflow: hidden;
+}
+.accent-image-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+}
+.accent-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  filter: grayscale(15%) contrast(1.02);
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+.accent-image-wrap:hover img {
+  transform: scale(1.03);
+  filter: grayscale(0%) contrast(1.05);
+}
+.accent-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .accent-image-section { padding: 2rem 20px; }
+  .accent-image-wrap img { height: 200px; }
+  .accent-image-wrap { border-radius: 14px; }
+  .accent-image-caption { padding: 1rem 1.25rem; font-size: 9px; }
+}
 </style>
 </head>
 <body>
@@ -427,11 +473,11 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
   <div class="hero-year-label">SANKALP 2026 · Phase III · Graduate Track</div>
 
   <div class="hero-program-name">GRADUATE<br>RESEARCH<br>BOOTCAMP</div>
-  <div class="hero-phase-label">From Coursework to Active Research · IIT Palakkad</div>
+  <div class="hero-phase-label">From Coursework to Active Research</div>
 
   <div class="hero-bottom">
     <div class="hero-desc-block">
-      <p>A 5-day intensive research-oriented program bridging the gap between academic coursework and active robotics research. Mentored by IIT Palakkad faculty, GSAC members, and IEEE RAS experts — culminating in evaluated research proposals and a pathway to publication.</p>
+      <p>A 5-day intensive research-oriented program bridging the gap between academic coursework and active robotics research. Mentored by premier institution faculty, GSAC members, and IEEE RAS experts — culminating in evaluated research proposals and a pathway to publication.</p>
       <div class="hero-actions">
         <a href="apply.html" class="btn-primary">Apply Now →</a>
         <a href="#journey" class="btn-outline">View Program</a>
@@ -443,8 +489,8 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
         <div class="hero-stat-label">Days Intensive</div>
       </div>
       <div>
-        <div class="hero-stat-val">IIT</div>
-        <div class="hero-stat-label">Palakkad Venue</div>
+        <div class="hero-stat-val">5</div>
+        <div class="hero-stat-label">Expert Mentors</div>
       </div>
       <div>
         <div class="hero-stat-val">PG</div>
@@ -480,7 +526,7 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
         <div class="mentor-card">
           <div class="mentor-icon">🏛️</div>
           <div class="mentor-text">
-            <h4>IIT Palakkad Faculty</h4>
+            <h4>Host Institution Faculty</h4>
             <p>Core faculty mentors guiding research methodology, experimental design, and proposal evaluation.</p>
           </div>
         </div>
@@ -502,7 +548,7 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
           <div class="mentor-icon">🎓</div>
           <div class="mentor-text">
             <h4>Evaluation Panel</h4>
-            <p>Faculty from IIT Palakkad, IIIT Kottayam, and NIT Calicut evaluate final research proposals.</p>
+            <p>A multi-institutional faculty panel evaluates final research proposals.</p>
           </div>
         </div>
       </div>
@@ -548,6 +594,14 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
     </div>
   </div>
 </section>
+
+<!-- ACCENT IMAGE -->
+<div class="accent-image-section reveal">
+  <div class="accent-image-wrap">
+    <img src="/assets/neurorobotics-hero.png" alt="Advanced robotic prosthetic arm with neural interfaces" loading="lazy">
+    <div class="accent-image-caption">Graduate Research · Neural Interfaces · IEEE Publication Pathway</div>
+  </div>
+</div>
 
 <div class="section-divider"></div>
 
@@ -669,21 +723,21 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
       <div class="callout-pillar">
         <div class="callout-pillar-icon">🏛️</div>
         <div class="callout-pillar-text">
-          <h4>IIT Palakkad</h4>
+          <h4>Host Institution</h4>
           <p>Faculty evaluators from the host institution — guiding novelty and research methodology assessment.</p>
         </div>
       </div>
       <div class="callout-pillar">
         <div class="callout-pillar-icon">🎓</div>
         <div class="callout-pillar-text">
-          <h4>IIIT Kottayam</h4>
+          <h4>Academic Partner</h4>
           <p>Evaluation support ensuring cross-institutional rigor and diverse research perspectives.</p>
         </div>
       </div>
       <div class="callout-pillar">
         <div class="callout-pillar-icon">🔬</div>
         <div class="callout-pillar-text">
-          <h4>NIT Calicut</h4>
+          <h4>Research Partner</h4>
           <p>Additional faculty panelists assessing feasibility, impact, and technical soundness.</p>
         </div>
       </div>
@@ -712,7 +766,7 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
     <div class="pathway-card reveal">
       <div class="pathway-icon">🎓</div>
       <div class="pathway-title">PhD Opportunities</div>
-      <p class="pathway-desc">Guidance on pursuing doctoral research in robotics — at top Indian institutions (IITs, IIITs, NITs) and international labs working on neurorobotics, haptics, and CPS.</p>
+      <p class="pathway-desc">Guidance on pursuing doctoral research in robotics — at top Indian institutions and international labs working on neurorobotics, haptics, and CPS.</p>
       <div class="pathway-tags">
         <span class="pathway-tag">India</span>
         <span class="pathway-tag">International</span>
@@ -764,10 +818,10 @@ footer p { font-size: 12px; color: var(--white3); font-family: var(--font-mono);
 <section id="register">
   <div class="apply-inner reveal">
     <div class="apply-title">READY TO<br>RESEARCH?</div>
-    <p class="apply-desc">Join the Graduate Research Bootcamp at IIT Palakkad — 5 days from research methodology to a faculty-evaluated proposal and a pathway to IEEE publication.</p>
+    <p class="apply-desc">Join the Graduate Research Bootcamp — 5 days from research methodology to a faculty-evaluated proposal and a pathway to IEEE publication.</p>
     <div class="eligibility-row">
       <span class="elig-pill">🎓 M.Tech / M.S. / Ph.D. Year 1–2</span>
-      <span class="elig-pill">📍 IIT Palakkad</span>
+      <span class="elig-pill">📍 Venue TBA</span>
       <span class="elig-pill">🗓️ 5 Days Intensive</span>
     </div>
     <div class="apply-buttons">

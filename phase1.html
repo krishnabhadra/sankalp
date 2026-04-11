@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pragyan Explorers — Phase I | SANKALP 2026</title>
-<meta name="description" content="Pragyan Explorers: A 3-day foundational program in Neurorobotics & Human–Machine Interaction for school students (Grades 8–12). Part of SANKALP 2026 by IEEE RAS Kerala Chapter.">
+<title>Pragyan — Phase I | SANKALP 2026</title>
+<meta name="description" content="Pragyan: A 3-day foundational program in Neurorobotics & Human–Machine Interaction for school students (Grades 8–12). Part of SANKALP 2026 by IEEE RAS Kerala Chapter.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ── RESET ── */
@@ -783,6 +783,52 @@ footer p {
   .neuro-flow { flex-direction: column; gap: 1rem; }
   .neuro-flow-arrow { transform: rotate(90deg); margin: 0; padding: 0; }
 }
+
+/* ── ACCENT IMAGE ── */
+.accent-image-section {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 5%;
+  overflow: hidden;
+}
+.accent-image-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+}
+.accent-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  filter: grayscale(15%) contrast(1.02);
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+.accent-image-wrap:hover img {
+  transform: scale(1.03);
+  filter: grayscale(0%) contrast(1.05);
+}
+.accent-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .accent-image-section { padding: 2rem 20px; }
+  .accent-image-wrap img { height: 200px; }
+  .accent-image-wrap { border-radius: 14px; }
+  .accent-image-caption { padding: 1rem 1.25rem; font-size: 9px; }
+}
 </style>
 </head>
 <body>
@@ -810,7 +856,7 @@ footer p {
 
   <div class="hero-year-label">SANKALP 2026 · Phase I · School Outreach Program</div>
 
-  <div class="hero-program-name">PRAGYAN<br>EXPLORERS</div>
+  <div class="hero-program-name">PRAGYAN</div>
   <div class="hero-phase-label">Foundational Program in Neurorobotics &amp; Human–Machine Interaction</div>
 
   <div class="hero-bottom">
@@ -864,9 +910,17 @@ footer p {
   </div>
 
   <p class="neuro-desc reveal reveal-delay-1">
-    From prosthetics that read muscle signals to robots that respond to hand gestures — neurorobotics is where neuroscience, AI, and robotics converge to build systems that truly understand humans. In Pragyan Explorers, students experience this fusion firsthand.
+    From prosthetics that read muscle signals to robots that respond to hand gestures — neurorobotics is where neuroscience, AI, and robotics converge to build systems that truly understand humans. In Pragyan, students experience this fusion firsthand.
   </p>
 </section>
+
+<!-- ACCENT IMAGE -->
+<div class="accent-image-section reveal">
+  <div class="accent-image-wrap">
+    <img src="/assets/school-robotics.png" alt="Educational robot arm with breadboard circuits and electronics" loading="lazy">
+    <div class="accent-image-caption">Pragyan · Hands-on Robotics · Grades 8–12</div>
+  </div>
+</div>
 
 <div class="section-divider"></div>
 
@@ -1053,7 +1107,7 @@ footer p {
 <section id="register">
   <div class="apply-inner reveal">
     <div class="apply-title">READY TO<br>EXPLORE?</div>
-    <p class="apply-desc">Pragyan Explorers is open for school students in Grades 8–12. Secure your spot in Kerala's most hands-on introduction to neurorobotics.</p>
+    <p class="apply-desc">Pragyan is open for school students in Grades 8–12. Secure your spot in Kerala's most hands-on introduction to neurorobotics.</p>
     <div class="eligibility-row">
       <span class="elig-pill">📚 Grades 8–12</span>
       <span class="elig-pill">📍 Offline · In-Person</span>
