@@ -172,9 +172,7 @@ nav a:hover { color: #0f0f0f; background: rgba(0,0,0,0.05); }
 }
 
 .hero-logo-svg-wrap img {
-  width: 100%;
-  height: auto;
-  filter: brightness(0) invert(1);
+  filter: none !important;
 }
 
 .hero-tagline-text {
@@ -278,9 +276,11 @@ nav a:hover { color: #0f0f0f; background: rgba(0,0,0,0.05); }
 }
 
 .hero-logo-img {
-  display: block;
-  width: min(560px, 80vw);
-  height: auto;
+  width: min(750px, 80vw);
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent);
+  mask-image: linear-gradient(to bottom, black 85%, transparent);
 }
 
 /* ── TICKER ── */
